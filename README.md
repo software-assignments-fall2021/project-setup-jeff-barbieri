@@ -10,14 +10,15 @@ The Minimum Viable Product is a web-based platform with a 3D mannequin that supp
 ## Core team members (and GitHub accounts)
 
 The GitHub accounts of the project’s contributors are:
-github.com/bjr366 — Brian Rios
-github.com/jeffbarbieri — Jeff Barbieri
-github.com/wengf2086 — Frank Weng
-github.com/livhuang — Olivia Huang
-github.com/mic313 — Randi Coplin
+- github.com/bjr366 — Brian Rios
+- github.com/jeffbarbieri — Jeff Barbieri
+- github.com/wengf2086 — Frank Weng
+- github.com/livhuang — Olivia Huang
+- github.com/mic313 — Randi Coplin
 
 ## A short history of how this project came to be, and information about how to contribute to the project
 This project was conceptualized for NYU’s Software Engineering course by Jeff Barbieri, and enhanced with additions by developers Olivia Huang, Brian Rios, Randi Coplin, and Frank Weng. This project can be contributed to by adding more clothing articles, enhancing fitting functionality, or enhancing visualization functionality.
+
 Please see: [CONTRIBUTING.md](https://github.com/software-students-fall2021/project-setup-jeff-barbieri/blob/master/CONTRIBUTING.md)
 
 Instructions for building & testing our application are coming soon.
