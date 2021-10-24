@@ -3,24 +3,26 @@ import './MyOutfits.css';
 
 const Outfit = (props) => {
 	return(
-		<section class="outfit">
-			<h2 class="heading">{props.heading}</h2>
-			<img class="image" src={props.src}/>
-			<p class="details">{props.details}</p>
+		<section className="outfit">
+			<h2>{props.heading}</h2>
+			<img alt={props.alt} src={props.src}/>
+			<p>{props.details}</p>
 		</section>
 	)
 }
 
-const MyOutfits = (props) => {
+const MyOutfits = () => {
 	return(
-		<div class="heading">
-			<h1>My Outfits</h1>
+		<div className="myOutfits">
+			<div className="heading">My Outfits</div>
+			<section>
+				<Outfit heading="Outfit One Name" alt="Outfit One" src="https://picsum.photos/220/220" details="Outfit one details."/>
+				<Outfit heading="Outfit Two Name" alt="Outfit Two" src="https://picsum.photos/220/220" details="Outfit two details."/>
+				<Outfit heading="Outfit Three Name" alt="Outfit Three" src="https://picsum.photos/220/220" details="Outfit three details."/>
+				<Outfit heading="Outfit Four Name" alt="Outfit Four" src="https://picsum.photos/220/220" details="Outfit four details."/>
+			</section>
 		</div>
-		<Outfit heading="Outfit One Name" src="https://picsum.photos/220/220" details="Outfit one details."/>
-		<Outfit heading="Outfit Two Name" src="https://picsum.photos/220/220" details="Outfit two details."/>
-		<Outfit heading="Outfit Three Name" src="https://picsum.photos/220/220" details="Outfit three details."/>
-		<Outfit heading="Outfit Four Name" src="https://picsum.photos/220/220" details="Outfit four details."/>
 	)
 }
 
-export default MyOutfits;
+export default MyOutfits
