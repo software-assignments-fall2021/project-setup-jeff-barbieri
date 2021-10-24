@@ -1,13 +1,12 @@
 .myOutfits .heading {
 	position: absolute;
-	width: 93px;
-	height: 28px;
-	left: 141px;
-	top: 109px;
+	
+	margin-left: 114px;
+	margin-top: 109px;
 
 	font-family: Verdana;
 	font-style: normal;
-	font-weight: 600;
+	font-weight: normal;
 	font-size: 28px;
 	line-height: 28px;
 	/* identical to box height, or 140% */
@@ -22,28 +21,28 @@
 .myOutfits .outfit {
 	position: relative;
 	width: 281px;
-	height: 384px;
-	left: 47px;
+	height: 365px;
 	top: 214px;
+
+	margin-left: 47px;
+	margin-bottom: 20px;
 	
 	background-color: #f6f6f6;
 }
 
 .myOutfits .outfit h2 {
 	position: absolute;
-	left: 20%;
-	right: 20%;
-	top: 6.51%;
-	bottom: 86.2%;
+	left: 16%;
+	right: 16%;
+	bottom: 82%;
 
 	font-family: Verdana;
 	font-style: normal;
-	font-weight: 600;
+	font-weight: normal;
 	font-size: 20px;
 	line-height: 28px;
 	/* identical to box height, or 140% */
 
-	display: flex;
 	align-items: center;
 	text-align: center;
 	/*text-decoration-line: underline; */
@@ -56,27 +55,26 @@
 	position: absolute;
 	left: 10.68%;
 	right: 10.68%;
-	top: 20.31%;
-	bottom: 21.61%;
+	
+	bottom: 25%;
 
 	background: #C4C4C4;
 }
 
 .myOutfits .outfit p {
 	position: absolute;
-	left: 20%;
-	right: 20%;
-	top: 80%;
-	bottom: 7.81%;
+	left: 10%;
+	right: 10%;
+	top: 75%;
+	
 
 	font-family: Verdana;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 16px;
-	line-height: 28px;
+	font-size: 14px;
+	line-height: 22px;
 	/* identical to box height, or 175% */
 
-	display: flex;
 	align-items: center;
 
 	color: #000000;
