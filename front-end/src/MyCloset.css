@@ -1,0 +1,95 @@
+.myCloset .heading {
+	position: absolute;
+	
+	margin-left: 114px;
+	margin-top: 109px;
+
+    /* try to fit heading properly */
+    padding-bottom: 20px;
+
+	font-family: Verdana;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 28px;
+	line-height: 28px;
+	/* identical to box height, or 140% */
+
+	align-items: center;
+	text-align: center;
+
+	color: #04151F;
+}
+
+.myCloset .clothing {
+	position: relative;
+	width: 295px;
+    /* increased height of clothing boxes */
+    /* height: 380px; */
+	height: 365px;
+    
+	top: 150px; 
+
+	margin-left: 47px;
+	margin-bottom: 25px;
+	
+	/*background-color: #f6f6f6;*/
+	background-color: #f6f6f6;
+
+	border-radius: 10px;
+}
+
+.myCloset .clothing h2 {
+	position: absolute;
+	left: 16%;
+	right: 16%;
+	bottom: 84%;
+
+	font-family: Verdana;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 28px;
+	/* identical to box height, or 140% */
+
+	align-items: center;
+	text-align: center;
+	/*text-decoration-line: underline; */
+
+	color: #04151F;
+
+}
+
+.myCloset .clothing img {
+	position: absolute;
+	left: 10.68%;
+	right: 10.68%;
+	
+    /* center image in section*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+	bottom: 25%;
+
+	background: #C4C4C4;
+	border-radius: 10px;
+}
+
+.myCloset .clothing p {
+	position: absolute;
+	left: 10%;
+	right: 10%;
+	top: 75%;
+	
+
+	font-family: Verdana;
+	font-style: italic;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 22px;
+	/* identical to box height, or 175% */
+
+	align-items: center;
+
+	color: #04151F;
+}
