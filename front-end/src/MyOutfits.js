@@ -10,7 +10,7 @@ const Outfit = (props) => {
 		</section>
 	)
 }
-
+ 
 const MyOutfits = () => {
 	return(
 		<div className="myOutfits">
