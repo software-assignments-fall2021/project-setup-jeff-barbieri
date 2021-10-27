@@ -5,7 +5,7 @@ import MyCloset from './MyCloset'
 function App() {
   return (
     <div className="App">
-      <MyOutfits/>
+      <MyOutfit/>
     </div>
   );
 }

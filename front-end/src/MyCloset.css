@@ -1,15 +1,16 @@
-.myCloset .heading {
-	position: absolute;
-	
-	margin-left: 114px;
-	margin-top: 109px;
+.myCloset{
+	font-family: Verdana;
+	font-style: normal;
+	font-weight: normal;
+}
+.heading {
+	position: relative;
+	display: block;
+	margin-top: 15px;
 
     /* try to fit heading properly */
     padding-bottom: 20px;
 
-	font-family: Verdana;
-	font-style: normal;
-	font-weight: normal;
 	font-size: 28px;
 	line-height: 28px;
 	/* identical to box height, or 140% */
@@ -20,12 +21,43 @@
 	color: #04151F;
 }
 
-.myCloset .clothing {
+.menu{
+    position:absolute;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    margin: auto;
+    
+}
+
+.tab-item{
+    border: solid black 1px;
+    width:25%;
+}
+.tab-item:hover{
+    background-color: gray
+}
+.tops{
+	/* display:none; */
+	display: none;
+}
+.bottoms{
+	/* display:none; */
+	display: none;
+}
+.accessories{
+	/* display:none; */
+	display: none;
+}
+.footwear{
+	/* display:none; */
+	display: none;
+}
+.clothing {
 	position: relative;
 	width: 295px;
-    /* increased height of clothing boxes */
-    /* height: 380px; */
-	height: 365px;
+	height: 400px;
     
 	top: 150px; 
 
@@ -37,12 +69,11 @@
 
 	border-radius: 10px;
 }
-
-.myCloset .clothing h2 {
+.clothingHead {
 	position: absolute;
 	left: 16%;
 	right: 16%;
-	bottom: 84%;
+	bottom: 80%;
 
 	font-family: Verdana;
 	font-style: normal;
@@ -56,10 +87,17 @@
 	/*text-decoration-line: underline; */
 
 	color: #04151F;
-
 }
 
-.myCloset .clothing img {
+h2.clothingType{
+	position: relative;
+	display: block;
+	justify-content: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+img {
 	position: absolute;
 	left: 10.68%;
 	right: 10.68%;
@@ -75,7 +113,7 @@
 	border-radius: 10px;
 }
 
-.myCloset .clothing p {
+p {
 	position: absolute;
 	left: 10%;
 	right: 10%;
@@ -93,3 +131,5 @@
 
 	color: #04151F;
 }
+
+
