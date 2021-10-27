@@ -1,0 +1,46 @@
+
+
+/* . for class , # for id */
+.authentication{
+    position: absolute;
+    text-align: center;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+}
+h1 {
+    width: 240px;
+    height: 200px;
+}
+
+/*hover functionality for button*/
+button.main{
+    background-color: white;
+    border-radius: 50px;
+    border: 1px solid #8ac4ff;
+    width: 200px;
+    padding-block: 8px;
+    color:#8ac4ff
+}
+
+button.main:hover{
+    background-color: #8ac4ff;
+    border-radius: 50px;
+    border: 1px solid white;
+    width: 200px;
+    padding-block: 8px;
+    color: white;
+}
+
+button#continue{
+    padding-top: 15px;
+    border: none;
+    background-color: white;
+}
+button#continue:hover{
+    padding-top: 15px;
+    border: none;
+    background-color:white;
+    font-weight: bold;
+}
