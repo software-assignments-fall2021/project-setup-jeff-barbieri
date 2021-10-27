@@ -15,7 +15,7 @@ h1 {
 }
 
 /*hover functionality for button*/
-button.main{
+input.main{
     background-color: white;
     border-radius: 50px;
     border: 1px solid #8ac4ff;
@@ -24,7 +24,7 @@ button.main{
     color:#8ac4ff
 }
 
-button.main:hover{
+input.main:hover{
     background-color: #8ac4ff;
     border-radius: 50px;
     border: 1px solid white;
@@ -33,12 +33,12 @@ button.main:hover{
     color: white;
 }
 
-button#continue{
+input#continue{
     padding-top: 15px;
     border: none;
     background-color: white;
 }
-button#continue:hover{
+input#continue:hover{
     padding-top: 15px;
     border: none;
     background-color:white;

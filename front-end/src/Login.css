@@ -1,0 +1,46 @@
+.Login{
+    position: absolute;
+    text-align: center;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    /* background-color: red; */
+}
+
+h1 {
+    width: 240px;
+    height: 200px;
+    text-align: center;
+}
+/* should move "Username" and "Password" left but isn't working */
+label.id{
+    position:absolute;
+    text-align: left;
+    align-items: left;
+    font-size: small;
+    
+}
+input{
+    width: 200px;
+    padding-block: 8px;
+}
+
+/*hover functionality for button*/
+input.main{
+    background-color: white;
+    border-radius: 50px;
+    border: 1px solid #8ac4ff;
+    width: 200px;
+    padding-block: 8px;
+    color:#8ac4ff
+}
+
+input.main:hover{
+    background-color: #8ac4ff;
+    border-radius: 50px;
+    border: 1px solid white;
+    width: 200px;
+    padding-block: 8px;
+    color: white;
+}
