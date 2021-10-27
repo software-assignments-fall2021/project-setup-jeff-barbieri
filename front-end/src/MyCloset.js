@@ -46,14 +46,10 @@ const MyCloset = () => {
 			<div className="heading">My Closet</div>
 
             {/* TODO mannequin*/}
-            <div id="mannequin">
-                <img src="https://picsum.photos/220/220" alt="Mannequin"></img>
-            </div>
+            <img id="mannequin" src="https://picsum.photos/220/220" alt="Mannequin"></img>
 
             {/* TODO Add to Outfits button */}
-            <form id="outfitButton" onSubmit={addOutfit}>
-                <button type="submit">Add to Outfits</button>
-            </form>
+            <button id="outfitButton" type="button">Add to Outfits</button>
 			
             {/* tab dropdown menu */}
             <div className="menu">
