@@ -26,13 +26,13 @@ const MyCloset = () => {
         for(i = 0; i<tabs.length; i++){
             // get background color of each tab
             let bgcolor = window.getComputedStyle(tabs[i]).backgroundColor;
-            // if not white (selected): show
-            if (bgcolor.localeCompare("rgba(0, 0, 0, 0)") !== 0){
+            // if not lightgray (selected): show
+            if (bgcolor.localeCompare("rgb(211, 211, 211)") !== 0){
                 currentTab = tabNames[i]; // current tab by id name
                 let show = document.getElementsByClassName(currentTab);
                 show[0].style.display = 'block'; // make visible
             }
-            // if white (not selected): hide
+            // if lightgray (not selected): hide
             else{
                 currentTab = tabNames[i];
                 let hide = document.getElementsByClassName(currentTab);

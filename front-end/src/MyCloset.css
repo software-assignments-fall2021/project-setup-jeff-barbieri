@@ -41,7 +41,7 @@
 	margin: 4px 2px;
 	cursor: pointer;
 	border-radius: 12px;
-
+	
 	float: right;
 	margin-left: auto; 
 	margin-right: 5px;
@@ -49,22 +49,22 @@
 	margin-bottom: 8px;
 }
 .menu{
-    position:relative;
     list-style-type: none;
     display: flex;
     flex-direction: row;
     width:100%;
-    margin: auto;
+	height: 30px;
+	margin-top: 20px;
     
 }
 
 .tab-item{
-    border: solid black 1px;
+	background-color: lightgray;
     width:25%;
 	text-align: center;
 }
 .tab-item:hover{
-    background-color: gray
+    background-color: gray;
 }
 .tops{
 	/* display:none; */
