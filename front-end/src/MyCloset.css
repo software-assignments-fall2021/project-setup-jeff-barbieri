@@ -22,7 +22,7 @@
 }
 
 .menu{
-    position:absolute;
+    position:relative;
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -34,6 +34,7 @@
 .tab-item{
     border: solid black 1px;
     width:25%;
+	text-align: center;
 }
 .tab-item:hover{
     background-color: gray
@@ -59,8 +60,8 @@
 	width: 295px;
 	height: 400px;
     
-	top: 150px; 
-
+	/* top: 150px;  */
+	
 	margin-left: 47px;
 	margin-bottom: 25px;
 	
@@ -97,7 +98,7 @@ h2.clothingType{
 	padding-bottom: 10px;
 }
 
-img {
+.clothingImg {
 	position: absolute;
 	left: 10.68%;
 	right: 10.68%;

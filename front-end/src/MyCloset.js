@@ -5,13 +5,17 @@ const Clothing = (props) => {
 	return(
 		<section className="clothing">
 			<h2 className="clothingHead">{props.heading}</h2>
-			<img alt={props.alt} src={props.src}/>
+			<img className="clothingImg" alt={props.alt} src={props.src}/>
 			<p>{props.details}</p>
 		</section>
 	)
 }
 
 const MyCloset = () => {
+
+    function addOutfit(){
+        console.log("Congrats! This Outfit has been added to My Outfits.")
+    }
 
     // function that hides and shows clothing tab content
     function tabHide(){
@@ -40,7 +44,16 @@ const MyCloset = () => {
 	return(
 		<div className="myCloset">
 			<div className="heading">My Closet</div>
-            
+
+            {/* TODO mannequin*/}
+            <div id="mannequin">
+                <img src="https://picsum.photos/220/220" alt="Mannequin"></img>
+            </div>
+
+            {/* TODO Add to Outfits button */}
+            <form id="outfitButton" onSubmit={addOutfit}>
+                <button type="submit">Add to Outfits</button>
+            </form>
 			
             {/* tab dropdown menu */}
             <div className="menu">
@@ -58,11 +71,6 @@ const MyCloset = () => {
                 </div>
             </div>
 
-            {/* TODO */}
-            {/* <div id="mannequin">
-                
-            </div> */}
-            
             {/* TODO in the future, we will have to extract these Clothing 
             objects from an API */}
 
