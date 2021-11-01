@@ -24,4 +24,10 @@ export const SidebarData = [
         icon: <GiIcons.GiPerson />,
         cName: 'nav-text',
     },
+    {
+        title: 'TryOn',
+        path: '/TryOn',
+        icon: <GiIcons.GiClothes/>,
+        cName: 'nav-text',
+    },
 ]
