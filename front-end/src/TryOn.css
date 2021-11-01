@@ -104,19 +104,7 @@ svg {
     background-color: gray;
 	color: white;
 }
-.tops{
-	/* display:none; */
-	display: none;
-}
-.bottoms{
-	/* display:none; */
-	display: none;
-}
-.accessories{
-	/* display:none; */
-	display: none;
-}
-.footwear{
+.recents{
 	/* display:none; */
 	display: none;
 }
