@@ -17,7 +17,7 @@ const TryOn = () => {
         console.log("Congrats! This Outfit has been added to My Outfits.")
     }
 
-    // function that hides and shows clothing tab content
+    // function that hides and shows clothing tab content. Test.
     function tabHide(){
         let tabNames = new Array("tops", "bottoms", "accessories", "footwear");
         let currentTab; 
