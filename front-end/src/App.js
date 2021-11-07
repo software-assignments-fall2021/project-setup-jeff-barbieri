@@ -34,9 +34,17 @@ function App() {
       </Router>
       {/* <Authentication/>
       <Login/> */}
+      <Route path='/login'>
+        <Login/>
+      </Route>
+
+      <Route path='/register'>
+        <Register/>
+      </Route>
 
       {/* <MyCloset/> */}
       {/* <MyOutfits/> */}
+      <Footer/>
     </div>
   );
 }

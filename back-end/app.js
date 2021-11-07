@@ -55,6 +55,18 @@ app.get("/tryon", (req, res) => {
     res.json(body)
   })
 
+      // route for HTTP GET requests to /Login
+app.get("/login", (req, res) => {
+    // send the response as JSON to the client
+    res.sendFile("/login.html")
+  })
+
+        // route for HTTP GET requests to /Register
+app.get("/register", (req, res) => {
+    // send the response as JSON to the client
+    res.sendFile("/register.html")
+  })
+
   // enable file uploads saved to disk in a directory named 'public/uploads'
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
