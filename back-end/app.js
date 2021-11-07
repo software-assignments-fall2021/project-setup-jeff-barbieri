@@ -17,7 +17,7 @@ app.use(express.json()) // decode JSON-formatted incoming POST data
 app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming POST data
 
 // route for HTTP GET requests to /MyCloset
-app.get("/MyCloset", (req, res) => {
+app.get("/mycloset", (req, res) => {
     const clothing = {
       heading: "Flower Shirt",
       alt: "Flower shirt",
@@ -30,7 +30,7 @@ app.get("/MyCloset", (req, res) => {
   })
 
   // route for HTTP GET requests to /MyOutfits
-app.get("/MyOutfits", (req, res) => {
+app.get("/myoutfits", (req, res) => {
     const clothing = {
       heading: "Winter Outfit",
       alt: "Winter outfit",
@@ -43,7 +43,7 @@ app.get("/MyOutfits", (req, res) => {
   })
 
     // route for HTTP GET requests to /TryOn
-app.get("/TryOn", (req, res) => {
+app.get("/tryon", (req, res) => {
     const clothing = {
         heading: "Flower Shirt",
         alt: "Flower shirt",
