@@ -54,3 +54,23 @@ app.get("/TryOn", (req, res) => {
     // send the response as JSON to the client
     res.json(body)
   })
+
+  // enable file uploads saved to disk in a directory named 'public/uploads'
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "public/uploads")
+    },
+    filename: function (req, file, cb) {
+      // take apart the uploaded file's name so we can create a new one based on it
+      const extension = path.extname(file.originalname)
+      const basenameWithoutExtension = path.basename(file.originalname, extension)
+      // create a new filename with a timestamp in the middle
+      const newName = `${basenameWithoutExtension}-${Date.now()}${extension}`
+      // tell multer to use this new filename for the uploaded file
+      cb(null, newName)
+    },
+  })
+  const upload = multer({ storage: storage })
+
+  // export express app to make it available to other modules
+module.exports = app 
