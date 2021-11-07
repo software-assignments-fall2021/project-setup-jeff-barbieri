@@ -6,13 +6,13 @@ const Authentication = () => {
         <div className="authentication">
              <h1>Virtual Apparel Try On</h1>
              <p>
-                <button class = "main" > Login </button>
+                <input type = "submit" class = "main" value="Log In" />
             </p>
             <p>
-                <button class = "main" > Create Account</button>
+                <input type = "submit" class = "main" value="Log In" />
             </p>
             <p>
-                <button id = "continue"> Continue Without Account </button>
+                <input type="submit" id = "continue" value="Continue Without Account" />
             </p>
         </div>
 
