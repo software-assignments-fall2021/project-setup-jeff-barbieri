@@ -71,6 +71,10 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+#search-go{
+	padding-left: 30%;
+	padding-right: 10%;
+}
 
 input {
 	all: unset;
