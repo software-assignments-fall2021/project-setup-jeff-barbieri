@@ -1,6 +1,7 @@
 import React from 'react'
 import MyOutfits from './MyOutfits'
 import MyCloset from './MyCloset'
+import MyMannequin from './MyMannequin'
 import Authentication from './Authentication';
 import Login from './Login';
 import NavMenu from './components/NavMenu';
@@ -20,6 +21,10 @@ function App() {
 
           <Route path='/MyOutfits'>
             <MyOutfits/>
+          </Route>
+
+          <Route path='/my-mannequin'>
+            <MyMannequin/>
           </Route>
 
           {/* TODO: MyMannequin */}
