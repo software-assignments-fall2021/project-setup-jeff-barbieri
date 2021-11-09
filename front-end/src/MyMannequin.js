@@ -1,7 +1,6 @@
 import './MyMannequin.css';
 import React from 'react';
 import { useState } from 'react';
-import {View} from 'react-native-web';
 import mannequinIMG from './mannequin.png';
 
 
@@ -18,19 +17,21 @@ const MyMannequin = () => {
 
     const handleSubmit = (event)=> {
         event.preventDefault();
-        alert(inputs);
+        alert("Mannequin Measurments Updated");
     }
     
 
     return(
         <>
-        <View className='container'>
+        <div className='container'>
             <h1 className='HeadingText'>My Mannequin</h1>
+            </div>
+        <div className='container'>
             <img className='Images' src={mannequinIMG} alt="Mannequin"/>
-            </View>
+         </div>   
 
            
-            <View>
+            <div className='container'>
             <form onSubmit={handleSubmit}>
             <label>Sex:
                 <select
@@ -109,8 +110,9 @@ const MyMannequin = () => {
                     <option value = "endomorph">Endomorph</option>
                 </select>
             </label>
+            <input type="submit" value="Submit"/>
         </form>
-            </View>
+            </div>
             </>
     )
 }
