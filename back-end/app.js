@@ -16,41 +16,28 @@ app.use(morgan("dev")) // morgan has a few logging default styles - dev is a nic
 app.use(express.json()) // decode JSON-formatted incoming POST data
 app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming POST data
 
+// import fs to read json files
+'use strict';
+const fs = require('fs');
 
 // Brian getting it started
 app.get("/", (req, res) => {
   res.send("Hello world!")
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// read mycloset.json
+let clothing;
+fs.readFile('./data/mycloset.json', 'utf8', function (err, data) {
+  if (err) throw err;
+  console.log("data: \n" + data);
+  clothing = data;
+});
 
 // route for HTTP GET requests to /MyCloset
 app.get("/mycloset", (req, res) => {
-    const clothing = {
-      heading: "Flower Shirt",
-      alt: "Flower shirt",
-      src: "/static/images/clothing.jpg",
-      details: "Nike Flower Shirt, white, size small."
-    }
-  
-    // send the response as JSON to the client
-    res.json(body)
-  })
+    // display mycloset.json
+    res.send(clothing);
+})
 
 // route for HTTP GET requests to /MyOutfits
 app.get("/myoutfits", (req, res) => {
