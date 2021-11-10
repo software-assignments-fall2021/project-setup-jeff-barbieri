@@ -16,6 +16,29 @@ app.use(morgan("dev")) // morgan has a few logging default styles - dev is a nic
 app.use(express.json()) // decode JSON-formatted incoming POST data
 app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming POST data
 
+
+// Brian getting it started
+app.get("/", (req, res) => {
+  res.send("Hello world!")
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // route for HTTP GET requests to /MyCloset
 app.get("/mycloset", (req, res) => {
     const clothing = {
@@ -29,7 +52,7 @@ app.get("/mycloset", (req, res) => {
     res.json(body)
   })
 
-  // route for HTTP GET requests to /MyOutfits
+// route for HTTP GET requests to /MyOutfits
 app.get("/myoutfits", (req, res) => {
     const clothing = {
       heading: "Winter Outfit",
