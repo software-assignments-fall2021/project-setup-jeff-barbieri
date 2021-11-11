@@ -89,6 +89,8 @@ app.get("/mymannequin", (req, res) => {
     res.send(mannequin);
 })
 
+/*AUTHENTICATION PAGE ROUTING*/
+
 // route for HTTP GET requests to /Login
 app.get("/login", (req, res) => {
     // send the response as JSON to the client
