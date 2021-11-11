@@ -25,59 +25,83 @@ app.get("/", (req, res) => {
   res.send("Hello world!")
 })
 
+/*MY CLOSET*/
+
 // read mycloset.json
-let clothing;
+let closet;
 fs.readFile('./data/mycloset.json', 'utf8', function (err, data) {
   if (err) throw err;
   console.log("data: \n" + data);
-  clothing = data;
+  closet = data;
 });
 
 // route for HTTP GET requests to /MyCloset
 app.get("/mycloset", (req, res) => {
     // display mycloset.json
-    res.send(clothing);
+    res.send(closet);
 })
+
+/*MY OUTFITS*/
+
+// read myoutfits.json
+let outfits;
+fs.readFile('./data/myoutfits.json', 'utf8', function (err, data) {
+  if (err) throw err;
+  console.log("data: \n" + data);
+  outfits = data;
+});
 
 // route for HTTP GET requests to /MyOutfits
 app.get("/myoutfits", (req, res) => {
-    const clothing = {
-      heading: "Winter Outfit",
-      alt: "Winter outfit",
-      src: "/static/images/clothing.jpg",
-      details: "Nike Puffer Jacket, black, size small. Nike Joggers, black, size medium."
-    }
-  
-    // send the response as JSON to the client
-    res.json(body)
-  })
+    // display myoutfits.json
+    res.send(outfits);
+})
 
-    // route for HTTP GET requests to /TryOn
+/*TRY ON*/
+
+// read tryon.json
+let tryon;
+fs.readFile('./data/tryon.json', 'utf8', function (err, data) {
+  if (err) throw err;
+  console.log("data: \n" + data);
+  tryon = data;
+});
+
+// route for HTTP GET requests to /TryOn
 app.get("/tryon", (req, res) => {
-    const clothing = {
-        heading: "Flower Shirt",
-        alt: "Flower shirt",
-        src: "/static/images/clothing.jpg",
-        details: "Nike Flower Shirt, white, size small."
-    }
-  
-    // send the response as JSON to the client
-    res.json(body)
-  })
+    // display tryon.json
+    res.send(tryon);
+})
 
-      // route for HTTP GET requests to /Login
+/*MY MANNEQUIN*/
+
+// read mymannequin.json
+let mannequin;
+fs.readFile('./data/mymannequin.json', 'utf8', function (err, data) {
+  if (err) throw err;
+  console.log("data: \n" + data);
+  mannequin = data;
+});
+
+// route for HTTP GET requests to /MyMannequin
+app.get("/mymannequin", (req, res) => {
+    // display tryon.json
+    res.send(mannequin);
+})
+
+// route for HTTP GET requests to /Login
 app.get("/login", (req, res) => {
     // send the response as JSON to the client
     res.sendFile("/login.html")
-  })
+})
 
-        // route for HTTP GET requests to /Register
+// route for HTTP GET requests to /Register
 app.get("/register", (req, res) => {
     // send the response as JSON to the client
     res.sendFile("/register.html")
-  })
+})
 
-  // enable file uploads saved to disk in a directory named 'public/uploads'
+// enable file uploads saved to disk in a directory named 'public/uploads'
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, "public/uploads")
