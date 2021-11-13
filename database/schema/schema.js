@@ -1,14 +1,11 @@
 //filler schema for database implementation
-var schema = new Schema(
+const closet = new Schema(
     {
       name: String,
-      binary: Buffer,
-      living: Boolean,
-      updated: { type: Date, default: Date.now() },
-      age: { type: Number, min: 18, max: 65, required: true },
-      mixed: Schema.Types.Mixed,
-      _someId: Schema.Types.ObjectId,
-      array: [],
-      ofString: [String], // You can also have an array of each of the other types too.
-      nested: { stuff: { type: String, lowercase: true, trim: true } }
+      type: String,
+      size: {type: Number,
+        min: 0,
+        max: 4}, //store clothing sizes as integer values
+      source: String,
+      alt: String
     })
