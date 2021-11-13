@@ -3,7 +3,7 @@ const mocha = require('mocha');
 const assert = require('assert');
 
 describe('GET MyCloset', () => {
-  it('it should GET MyCloset', (done) => {
+  it('it should GET MyCloset.json', (done) => {
     chai.request(server)
         .get('/mycloset.json')
         .end((err, res) => {
