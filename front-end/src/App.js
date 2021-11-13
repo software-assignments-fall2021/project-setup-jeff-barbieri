@@ -16,11 +16,11 @@ function App() {
         <NavMenu/>
         <Switch>
 
-          <Route path='/mycloset'>
+          <Route path='/my-closet'>
             <MyCloset/>
           </Route>
 
-          <Route path='/myoutfits'>
+          <Route path='/my-outfits'>
             <MyOutfits/>
           </Route>
 
@@ -28,9 +28,7 @@ function App() {
             <MyMannequin/>
           </Route>
 
-          {/* TODO: MyMannequin */}
-
-          <Route path='/tryon'>
+          <Route path='/try-on'>
             <TryOn/>
           </Route>
           

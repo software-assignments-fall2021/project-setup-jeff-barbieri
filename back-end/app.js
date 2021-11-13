@@ -36,7 +36,7 @@ fs.readFile('./data/mycloset.json', 'utf8', function (err, data) {
 });
 
 // route for HTTP GET requests to /MyCloset
-app.get("/mycloset", (req, res) => {
+app.get("/my-closet", (req, res) => {
     // display mycloset.json
     res.send(closet);
 })
@@ -52,7 +52,7 @@ fs.readFile('./data/myoutfits.json', 'utf8', function (err, data) {
 });
 
 // route for HTTP GET requests to /MyOutfits
-app.get("/myoutfits", (req, res) => {
+app.get("/my-outfits", (req, res) => {
     // display myoutfits.json
     res.send(outfits);
 })
@@ -68,7 +68,7 @@ fs.readFile('./data/tryon.json', 'utf8', function (err, data) {
 });
 
 // route for HTTP GET requests to /TryOn
-app.get("/tryon", (req, res) => {
+app.get("/try-on", (req, res) => {
     // display tryon.json
     res.send(tryon);
 })
@@ -84,7 +84,7 @@ fs.readFile('./data/mymannequin.json', 'utf8', function (err, data) {
 });
 
 // route for HTTP GET requests to /MyMannequin
-app.get("/mymannequin", (req, res) => {
+app.get("/my-mannequin", (req, res) => {
     // display tryon.json
     res.send(mannequin);
 })
