@@ -2,6 +2,7 @@ import React from 'react'
 import MyOutfits from './MyOutfits'
 import MyCloset from './MyCloset'
 import MyMannequin from './MyMannequin'
+import TryOn from './TryOn'
 import Authentication from './Authentication';
 import Login from './Login';
 import NavMenu from './components/NavMenu';
@@ -29,6 +30,10 @@ function App() {
 
           {/* TODO: MyMannequin */}
 
+          <Route path='/TryOn'>
+            <TryOn/>
+          </Route>
+          
         </Switch>
 
       </Router>
