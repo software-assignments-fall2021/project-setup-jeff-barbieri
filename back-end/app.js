@@ -20,6 +20,21 @@ app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming P
 'use strict';
 const fs = require('fs');
 
+/*  UNCOMMENT ONCE MONGODB SERVER SET UP
+//import mongoose module
+var mongoose = require('mongoose');
+
+//set up mongoose connection
+var mongoDB = 'mongodb://127.0.0.1/my_database';
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
+
+//get the connection
+var db = mongoose.connection;
+
+//attach connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+*/
+
 // Brian getting it started
 app.get("/", (req, res) => {
   res.send("Hello world!")
