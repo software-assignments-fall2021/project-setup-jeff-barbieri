@@ -60,7 +60,7 @@ console.log(topsArr);
 // route for HTTP GET requests to /MyCloset
 app.get("/my-closet", (req, res) => {
     // display mycloset.json
-    res.send(topsArr);
+    res.send(fileObj);
     // TODO extract array of clothing objects from mycloset.json
 
     // TODO Find some way to display this array in the front-end
