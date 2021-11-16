@@ -1,6 +1,67 @@
 {
-    "heading": "Flower Shirt",
-    "alt": "Flower shirt",
-    "src": "/static/images/clothing.jpg",
-    "details": "Nike Flower Shirt, white, size small."
+    "tops": [
+        {
+            "heading": "Flower Shirt",
+            "alt": "Flower shirt",
+            "src": "/static/images/clothing.jpg",
+            "details": "Nike Flower Shirt, white, size large."
+        },
+        {
+            "heading": "Bad Luck Shirt",
+            "alt": "Bad Luck Shirt",
+            "src": "/static/images/clothing.jpg",
+            "details": "Diesel T-Shirt, yellow, size medium."
+        },
+        {
+            "heading": "Batman Shirt",
+            "alt": "Batman Shirt",
+            "src": "/static/images/clothing.jpg",
+            "details": "Batman Logo T-Shirt, yellow, size medium."
+        }],
+    "bottoms": [
+        {
+            "heading": "Plad Pants",
+            "alt": "Plad Pants",
+            "src": "/static/images/clothing.jpg",
+            "details": "Plad Slim Fit Pants, black and white plad, size large."
+        },
+        {
+            "heading": "Tech Joggers",
+            "alt": "Tech Joggers",
+            "src": "/static/images/clothing.jpg",
+            "details": "Nike Tech Joggers, gray, size medium."
+        },
+        {
+            "heading": "Blue Jeans",
+            "alt": "Blue Jeans",
+            "src": "/static/images/clothing.jpg",
+            "details": "Hollister Skinny Jeans, dark blue, size 32-30."
+        }],
+    "footwear": [
+        {
+            "heading": "Docs",
+            "alt": "Docs",
+            "src": "/static/images/clothing.jpg",
+            "details": "Dr. Marten Combat Boots, black leather, size 11."
+        },
+        {
+            "heading": "Travis Jordans",
+            "alt": "Travis Jordans",
+            "src": "/static/images/clothing.jpg",
+            "details": "Travis Scott Air Jordan 1's, mocha, size 11."
+        }],
+    "accessories": [
+        {
+            "heading": "LV belt",
+            "alt": "LV belt",
+            "src": "/static/images/clothing.jpg",
+            "details": "Louis Vuitton Belt, black, size large."
+        },
+        {
+            "heading": "Rolex",
+            "alt": "Rolex",
+            "src": "/static/images/clothing.jpg",
+            "details": "Rolex Watch, VVS, size large."
+        }]
+    
 }
