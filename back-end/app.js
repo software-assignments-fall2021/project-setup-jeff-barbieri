@@ -42,28 +42,15 @@ app.get("/", (req, res) => {
 
 /* MY CLOSET */
 // read mycloset.json
-// OLD WAY
-let closet;
-fs.readFile('./data/mycloset.json', 'utf8', function (err, data) {
-  if (err) throw err;
-  console.log("data: \n" + data);
-  closet = data;
-});
-
-// NEW WAY - extract each array
-let fileString = fs.readFileSync('./data/mycloset.json').toString();
-let fileObj = JSON.parse(fileString);
-// tops
-let topsArr = fileObj.tops;
-console.log(topsArr);
+let closetString = fs.readFileSync('./data/mycloset.json').toString();
+let closet = JSON.parse(fileString);
+// tops (this is how we get each array)
+let topsArr = closet.tops;
 
 // route for HTTP GET requests to /MyCloset
 app.get("/my-closet", (req, res) => {
     // display mycloset.json
-    res.send(fileObj);
-    // TODO extract array of clothing objects from mycloset.json
-
-    // TODO Find some way to display this array in the front-end
+    res.send(closet);
 })
 
 /*MY OUTFITS*/
