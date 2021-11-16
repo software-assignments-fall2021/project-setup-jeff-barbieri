@@ -39,7 +39,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.get("/", (req, res) => {
   res.send("Hello world!")
 })
-
+// -----------------------------------------------------------
 /* MY CLOSET */
 // read mycloset.json
 let closetString = fs.readFileSync('./data/mycloset.json').toString();
@@ -52,16 +52,11 @@ app.get("/my-closet", (req, res) => {
     // display mycloset.json
     res.send(closet);
 })
-
+// -----------------------------------------------------------
 /*MY OUTFITS*/
-
 // read myoutfits.json
-let outfits;
-fs.readFile('./data/myoutfits.json', 'utf8', function (err, data) {
-  if (err) throw err;
-  console.log("data: \n" + data);
-  outfits = data;
-});
+let outfitsString = fs.readFileSync('./data/myoutfits.json').toString();
+let outfits = JSON.parse(outfitsString);
 
 // route for HTTP GET requests to /MyOutfits
 app.get("/my-outfits", (req, res) => {
@@ -82,6 +77,7 @@ app.get("/try-on", (req, res) => {
     res.send(tryon.recent);
 })
 
+// -----------------------------------------------------------
 /*MY MANNEQUIN*/
 
 // read mymannequin.json

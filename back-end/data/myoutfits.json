@@ -1,5 +1,5 @@
 {
-    "outfit-1": [
+    "outfit1": [
         {
             "heading": "Flower Shirt",
             "alt": "Flower shirt",
@@ -30,7 +30,7 @@
             "src": "/static/images/clothing.jpg",
             "details": "Rolex Watch, VVS, size large."
         }],
-    "outfit-2": [
+    "outfit2": [
         {
             "heading": "Bad Luck Shirt",
             "alt": "Bad Luck Shirt",
