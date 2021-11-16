@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
 /* MY CLOSET */
 // read mycloset.json
 let closetString = fs.readFileSync('./data/mycloset.json').toString();
-let closet = JSON.parse(fileString);
+let closet = JSON.parse(closetString);
 // tops (this is how we get each array)
 let topsArr = closet.tops;
 
@@ -69,20 +69,17 @@ app.get("/my-outfits", (req, res) => {
     res.send(outfits);
 })
 
+// -----------------------------------------------------------
 /*TRY ON*/
 
 // read tryon.json
-let tryon;
-fs.readFile('./data/tryon.json', 'utf8', function (err, data) {
-  if (err) throw err;
-  console.log("data: \n" + data);
-  tryon = data;
-});
+let tryonString = fs.readFileSync('./data/tryon.json').toString();
+let tryon = JSON.parse(tryonString);
 
-// route for HTTP GET requests to /TryOn
+// route for HTTP GET requests to /TryOnd
 app.get("/try-on", (req, res) => {
     // display tryon.json
-    res.send(tryon);
+    res.send(tryon.recent);
 })
 
 /*MY MANNEQUIN*/
