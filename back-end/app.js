@@ -39,32 +39,24 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.get("/", (req, res) => {
   res.send("Hello world!")
 })
-
-/*MY CLOSET*/
-
+// -----------------------------------------------------------
+/* MY CLOSET */
 // read mycloset.json
-let closet;
-fs.readFile('./data/mycloset.json', 'utf8', function (err, data) {
-  if (err) throw err;
-  console.log("data: \n" + data);
-  closet = data;
-});
+let closetString = fs.readFileSync('./data/mycloset.json').toString();
+let closet = JSON.parse(closetString);
+// tops (this is how we get each array)
+let topsArr = closet.tops;
 
 // route for HTTP GET requests to /MyCloset
 app.get("/my-closet", (req, res) => {
     // display mycloset.json
     res.send(closet);
 })
-
+// -----------------------------------------------------------
 /*MY OUTFITS*/
-
 // read myoutfits.json
-let outfits;
-fs.readFile('./data/myoutfits.json', 'utf8', function (err, data) {
-  if (err) throw err;
-  console.log("data: \n" + data);
-  outfits = data;
-});
+let outfitsString = fs.readFileSync('./data/myoutfits.json').toString();
+let outfits = JSON.parse(outfitsString);
 
 // route for HTTP GET requests to /MyOutfits
 app.get("/my-outfits", (req, res) => {
@@ -72,31 +64,25 @@ app.get("/my-outfits", (req, res) => {
     res.send(outfits);
 })
 
+// -----------------------------------------------------------
 /*TRY ON*/
 
 // read tryon.json
-let tryon;
-fs.readFile('./data/tryon.json', 'utf8', function (err, data) {
-  if (err) throw err;
-  console.log("data: \n" + data);
-  tryon = data;
-});
+let tryonString = fs.readFileSync('./data/tryon.json').toString();
+let tryon = JSON.parse(tryonString);
 
-// route for HTTP GET requests to /TryOn
+// route for HTTP GET requests to /TryOnd
 app.get("/try-on", (req, res) => {
     // display tryon.json
-    res.send(tryon);
+    res.send(tryon.recent);
 })
 
+// -----------------------------------------------------------
 /*MY MANNEQUIN*/
 
 // read mymannequin.json
-let mannequin;
-fs.readFile('./data/mymannequin.json', 'utf8', function (err, data) {
-  if (err) throw err;
-  console.log("data: \n" + data);
-  mannequin = data;
-});
+let mannequinString = fs.readFileSync('./data/mymannequin.json').toString();
+let mannequin = JSON.parse(mannequinString);
 
 // route for HTTP GET requests to /MyMannequin
 app.get("/my-mannequin", (req, res) => {
