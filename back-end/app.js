@@ -81,12 +81,8 @@ app.get("/try-on", (req, res) => {
 /*MY MANNEQUIN*/
 
 // read mymannequin.json
-let mannequin;
-fs.readFile('./data/mymannequin.json', 'utf8', function (err, data) {
-  if (err) throw err;
-  console.log("data: \n" + data);
-  mannequin = data;
-});
+let mannequinString = fs.readFileSync('./data/mymannequin.json').toString();
+let mannequin = JSON.parse(mannequinString);
 
 // route for HTTP GET requests to /MyMannequin
 app.get("/my-mannequin", (req, res) => {
