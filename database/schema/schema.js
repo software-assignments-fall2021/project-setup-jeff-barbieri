@@ -33,6 +33,7 @@ const mannequin = new Schema({
 //schema for user authentication values
 const login = new Schema({
         username: String,
+        // email: String, not sure if our login includes email address
         password: String //this will have to be encrypted in our .env file
     })
 
