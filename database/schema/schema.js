@@ -1,5 +1,5 @@
-//schema for closet values
-const closet = new Schema({
+//schema for clothing values
+const clothing = new Schema({
       name: String, //name of clothing article
       type: String, //clothing type, maybe replace with int later?
       size: {type: Number,
@@ -7,6 +7,15 @@ const closet = new Schema({
         max: 4}, //store clothing sizes as integer values, we can decide how many later
       source: String, //image URL
       alt: String //alt text for image
+    })
+
+//schema for closet values
+const closet = new Schema({
+        //all entries should be arrays of each clothing element type
+        tops: [],
+        bottoms: [],
+        footwear: [],
+        accessories: []
     })
 
 //schema for mannequin values
@@ -38,3 +47,9 @@ const tryOn = new Schema({
     alt: String, //alt text for image
     inCloset: Boolean //store if article is in closet
 })
+
+//schema for outfit values
+const outfits = new Schema({
+        //outfits will be array of clothing items (array of arrays)
+        outfits: [[]]
+    })
