@@ -2,6 +2,7 @@ const chai = require('chai');
 const mocha = require('mocha');
 const assert = require('assert');
 
+//test app.get('/my-closet')
 describe('GET MyCloset', () => {
   it('it should GET MyCloset.json', (done) => {
     chai.request(server)
@@ -15,6 +16,7 @@ describe('GET MyCloset', () => {
   });
 });
 
+//test app.get('/my-outfits')
 describe('GET MyOutfits', () => {
   it('it should GET MyOutfits.json', (done) => {
     chai.request(server)
@@ -28,6 +30,7 @@ describe('GET MyOutfits', () => {
   });
 });
 
+//test app.get('/try-on')
 describe('GET TryOn', () => {
   it('it should GET TryOn.json', (done) => {
     chai.request(server)
@@ -41,6 +44,7 @@ describe('GET TryOn', () => {
   });
 });
 
+//test app.get('/my-mannequin')
 describe('GET MyMannequin', () => {
   it('it should GET MyMannequin.json', (done) => {
     chai.request(server)
