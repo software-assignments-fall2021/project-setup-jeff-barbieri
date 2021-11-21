@@ -1,0 +1,82 @@
+{
+    "tops": [{
+        "shirts": [{
+            "U CREW NECK SHORT-SLEEVE T-SHIRT": [
+            {
+                "size": "XS",
+                "color": "White",
+                "length": 26,
+                "width": 19.667,
+                "sleeve": 17,
+                "src": "/static/images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.jpg"
+            },
+            {
+                "size": "S",
+                "color": "White",
+                "length": 27.167,
+                "width": 20.857,
+                "sleeve": 17.714,
+                "src": "/static/images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.jpg"
+            }]
+        }],
+        "sweatshirts": [{
+            "U SWEAT LONG-SLEEVE PULLOVER HOODIE": [
+            {
+                "size": "XS",
+                "color": "Black",
+                "length": 25.6,
+                "width": 21.5,
+                "sleeve": 33.5,
+                "src": "/static/images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE"
+            },
+            {
+                "size": "S",
+                "color": "Black",
+                "length": 26.375,
+                "width": 22.667,
+                "sleeve": 34.444,
+                "src": "/static/images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE"
+            }]
+        }]
+    }],
+    "bottoms": [{
+        "pants": [{
+            "U WIDE-FIT WORK PANTS": [
+            {
+                "size": "30",
+                "color": "Khaki",
+                "waist": 31.111,
+                "rise": 13,
+                "inseam": 30,
+                "src": "/static/images/U-WIDE-FIT-WORK-PANTS.jpg"
+            },
+            {
+                "size": "32",
+                "color": "Khaki",
+                "waist": 33.5,
+                "rise": 13.4,
+                "inseam": 30.333,
+                "src": "/static/images/U-WIDE-FIT-WORK-PANTS.jpg"
+            }]
+        }],
+        "shorts": [{
+            "DRY STRETCH EASY SHORTS": [
+            {
+                "size": "S",
+                "color": "Brown",
+                "waist": 28.333,
+                "rise": 10.833,
+                "inseam": 8.667,
+                "src": "/static/images/DRY-STRETCH-EASY-SHORTS.jpg"
+            },
+            {
+                "size": "M",
+                "color": "Brown",
+                "waist": 30.714,
+                "rise": 11,
+                "inseam": 9,
+                "src": "/static/images/DRY-STRETCH-EASY-SHORTS.jpg"
+            }]
+        }]
+    }]       
+}
