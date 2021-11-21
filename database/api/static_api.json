@@ -8,7 +8,7 @@
                 "length": 26,
                 "width": 19.667,
                 "sleeve": 17,
-                "src": "/static/images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.jpg"
+                "src": "/static/images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.png"
             },
             {
                 "size": "S",
@@ -16,26 +16,26 @@
                 "length": 27.167,
                 "width": 20.857,
                 "sleeve": 17.714,
-                "src": "/static/images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.jpg"
+                "src": "/static/images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.png"
             }]
         }],
         "sweatshirts": [{
             "U SWEAT LONG-SLEEVE PULLOVER HOODIE": [
             {
                 "size": "XS",
-                "color": "Black",
+                "color": "Khaki",
                 "length": 25.6,
                 "width": 21.5,
                 "sleeve": 33.5,
-                "src": "/static/images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE"
+                "src": "/static/images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE.png"
             },
             {
                 "size": "S",
-                "color": "Black",
+                "color": "Khaki",
                 "length": 26.375,
                 "width": 22.667,
                 "sleeve": 34.444,
-                "src": "/static/images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE"
+                "src": "/static/images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE.png"
             }]
         }]
     }],
@@ -48,7 +48,7 @@
                 "waist": 31.111,
                 "rise": 13,
                 "inseam": 30,
-                "src": "/static/images/U-WIDE-FIT-WORK-PANTS.jpg"
+                "src": "/static/images/U-WIDE-FIT-WORK-PANTS.png"
             },
             {
                 "size": "32",
@@ -56,7 +56,7 @@
                 "waist": 33.5,
                 "rise": 13.4,
                 "inseam": 30.333,
-                "src": "/static/images/U-WIDE-FIT-WORK-PANTS.jpg"
+                "src": "/static/images/U-WIDE-FIT-WORK-PANTS.png"
             }]
         }],
         "shorts": [{
@@ -67,7 +67,7 @@
                 "waist": 28.333,
                 "rise": 10.833,
                 "inseam": 8.667,
-                "src": "/static/images/DRY-STRETCH-EASY-SHORTS.jpg"
+                "src": "/static/images/DRY-STRETCH-EASY-SHORTS.png"
             },
             {
                 "size": "M",
@@ -75,8 +75,71 @@
                 "waist": 30.714,
                 "rise": 11,
                 "inseam": 9,
-                "src": "/static/images/DRY-STRETCH-EASY-SHORTS.jpg"
+                "src": "/static/images/DRY-STRETCH-EASY-SHORTS.png"
             }]
         }]
-    }]       
+    }],
+    "footwear": [{
+        "sneakers": [{
+            "KNITTED LACE-UP SNEAKERS": [
+            {
+                "size": "9",
+                "color": "White",
+                "insole": 11.333,
+                "width": 3.667,
+                "src": "/static/images/KNITTED-LACE-UP-SNEAKERS.png"
+            },
+            {
+                "size": "10",
+                "color": "White",
+                "insole": 11.75,
+                "width": 3.75,
+                "src": "/static/images/KNITTED-LACE-UP-SNEAKERS.png"
+            }]
+        }],
+        "boots": [{
+            "CHUKKA BOOTS": [
+            {
+                "size": "9",
+                "color": "Black",
+                "insole": 11.333,
+                "width": 3.667,
+                "src": "/static/images/CHUKKA-BOOTS.png"
+            },
+            {
+                "size": "10",
+                "color": "White",
+                "insole": 11.75,
+                "width": 3.75,
+                "src": "/static/images/CHUKKA-BOOTS.png"
+            }]
+        }]
+    }],
+    "accessories": [{
+        "hats": [{
+            "ROGER FEDERER CAP": [
+            {
+                "size": "OS",
+                "color": "Light Gray",
+                "src": "/static/images/ROGER-FEDERER-CAP.png"
+            }]
+        }],
+        "belts": [{
+            "ITALIAN LEATHER VINTAGE BELT": [
+            {
+                "size": "M",
+                "color": "Dark Brown",
+                "length": 40.167,
+                "width": 1.5,
+                "src": "/static/images/ITALIAN-LEATHER-VINTAGE-BELT.png"
+            },
+            {
+                "size": "M",
+                "color": "Dark Brown",
+                "length": 43.714,
+                "width": 1.5,
+                "src": "/static/images/ITALIAN-LEATHER-VINTAGE-BELT.png"
+            }]
+        }]
+    }]    
 }
