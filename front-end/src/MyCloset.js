@@ -13,6 +13,22 @@ const Clothing = (props) => {
 
 const MyCloset = () => {
 
+    // TODO display closet back end data in front end
+    const [data, setData] = React.useState(null);
+
+    React.useEffect(() => {
+        fetch("/my-closet")
+          .then((res) => res.json())
+          .then((data) => setData(data));
+          //TODO try to extract specific arrays
+          //.then((tops) => setData(data.tops));
+        }, []);
+
+    window.onload = showData();
+    function showData(){
+        console.log(data);
+    }
+
     function addOutfit(){
         console.log("Congrats! This Outfit has been added to My Outfits.")
     }
@@ -43,7 +59,11 @@ const MyCloset = () => {
 
 	return(
 		<div className="myCloset">
-			<div className="heading">My Closet</div>
+			<div className="heading">
+                My Closet
+                {/* TODO putting this data test here for now */}
+                <p>{!data ? "Loading..." : data}</p>
+            </div>
 
             {/* TODO mannequin*/}
             <img id="mannequin" src="https://picsum.photos/220/220" alt="Mannequin"></img>

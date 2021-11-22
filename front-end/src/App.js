@@ -8,15 +8,6 @@ import NavMenu from './components/NavMenu';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'; 
 
 function App() {
-  //initialize back-end storage
-  const [data, setData] = React.useState(null);
-
-  //use effect to read back-end data
-  React.useEffect(() => {
-    fetch('/back-end/data')
-      .then((res) => res.json())
-      .then((data) => setData(data.message))
-  }, [])
   
   return (
     <div className="App">

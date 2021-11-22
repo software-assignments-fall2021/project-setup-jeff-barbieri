@@ -49,8 +49,9 @@ let topsArr = closet.tops;
 
 // route for HTTP GET requests to /MyCloset
 app.get("/my-closet", (req, res) => {
-    // display mycloset.json
-    res.send(closet);
+    // TODO get this to display in front-end/MyCloset.js
+    // We can only display one child at a time
+    res.json(closet.tops[0].heading);
 })
 // -----------------------------------------------------------
 /*MY OUTFITS*/
