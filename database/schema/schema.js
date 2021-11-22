@@ -2,9 +2,7 @@
 const clothing = new Schema({
     name: String, //name of clothing article
     type: String, //clothing type, maybe replace with int later?
-    size: {type: Number,
-        min: 0,
-        max: 4}, //store clothing sizes as integer values, we can decide how many later
+    size: String, //decided not to enumerate size
     source: String, //image URL
     alt: String //alt text for image
 })
