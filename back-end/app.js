@@ -51,7 +51,8 @@ let topsArr = closet.tops;
 app.get("/my-closet", (req, res) => {
     // TODO get this to display in front-end/MyCloset.js
     // We can only display one child at a time
-    res.json(closet.tops[0].heading);
+    res.json(closet)
+
 })
 // -----------------------------------------------------------
 /*MY OUTFITS*/

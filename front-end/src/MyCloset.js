@@ -13,21 +13,33 @@ const Clothing = (props) => {
 
 const MyCloset = () => {
 
-    // TODO display closet back end data in front end
-    const [data, setData] = React.useState(null);
-
-    React.useEffect(() => {
-        fetch("/my-closet")
-          .then((res) => res.json())
-          .then((data) => setData(data));
-          //TODO try to extract specific arrays
-          //.then((tops) => setData(data.tops));
+    // displays Tops
+    function Tops() {
+        const [data, setData] = React.useState([]);
+        React.useEffect(() => {
+            fetch("/my-closet")
+                .then((res) => res.json())
+                // .then(setData)
+                .then((data) => setData(data.tops))
+                .catch(console.error);
         }, []);
-
-    window.onload = showData();
-    function showData(){
-        console.log(data);
+    
+        if (data) {
+            return (
+                <React.Fragment>
+                    {data.map((top) => (
+                        <Clothing
+                            heading = {top.heading}
+                            alt = {top.alt}
+                            src = "https://picsum.photos/220/220"
+                        />
+                    ))}
+                </React.Fragment>
+            );
+        }
+        return null;
     }
+
 
     function addOutfit(){
         console.log("Congrats! This Outfit has been added to My Outfits.")
@@ -61,8 +73,6 @@ const MyCloset = () => {
 		<div className="myCloset">
 			<div className="heading">
                 My Closet
-                {/* TODO putting this data test here for now */}
-                <p>{!data ? "Loading..." : data}</p>
             </div>
 
             {/* TODO mannequin*/}
@@ -101,16 +111,10 @@ const MyCloset = () => {
                 </form>
             </div>
 
-            {/* TODO in the future, we will have to extract these Clothing 
-            objects from an API */}
-
             {/* tops section */}
             <section className="tops">
                 {/* hideable content */}
-				<Clothing heading="Top One Name" alt="Clothing One" src="https://picsum.photos/220/220" />
-				<Clothing heading="Top Two Name" alt="Clothing Two" src="https://picsum.photos/220/220" />
-				<Clothing heading="Top Three Name" alt="Clothing Three" src="https://picsum.photos/220/220" />
-				<Clothing heading="Top Four Name" alt="Clothing Four" src="https://picsum.photos/220/220" />
+                {Tops()}
 			</section>
 
             {/* bottoms section */}
