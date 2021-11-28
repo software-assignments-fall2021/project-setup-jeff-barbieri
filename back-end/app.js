@@ -44,8 +44,6 @@ app.get("/", (req, res) => {
 // read mycloset.json
 let closetString = fs.readFileSync('./data/mycloset.json').toString();
 let closet = JSON.parse(closetString);
-// tops (this is how we get each array)
-let topsArr = closet.tops;
 
 // route for HTTP GET requests to /MyCloset
 app.get("/my-closet", (req, res) => {
@@ -76,7 +74,7 @@ let tryon = JSON.parse(tryonString);
 // route for HTTP GET requests to /TryOnd
 app.get("/try-on", (req, res) => {
     // display tryon.json
-    res.send(tryon.recent);
+    res.send(tryon);
 })
 
 // -----------------------------------------------------------
