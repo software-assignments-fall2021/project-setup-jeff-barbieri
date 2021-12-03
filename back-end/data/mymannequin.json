@@ -1,6 +1,12 @@
 {
-    "heading": "Rolex",
-    "alt": "Rolex",
-    "src": "/static/images/clothing.jpg",
-    "details": "Rolex Watch, VVS, size large."
+    "mannequin":{
+        "height":"6",
+        "gender": "Male",
+        "weight" : "190lb",
+        "chest" : "44",
+        "shirt size" : "M",
+        "jacket size" : "L",
+        "pants size" : "32/30",
+        "build" : "medium"
+    }
 }
