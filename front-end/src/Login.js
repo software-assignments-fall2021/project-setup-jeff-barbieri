@@ -58,22 +58,22 @@ const Login = props => {
             {
               //handle error condition
             }
-            <p>
-
+    
             <label>Username: </label>
-            <br />
-            </p>
+        
+        
             <input type="text" name="username" placeholder="Username" />
             <br />
             <br />
             <label>Password: </label>
-            <br/>
+       
             <input type="password" name="password" placeholder="Password" />
             <br />
             <br />
-            <input type="submit" class = "main" value="Log In" />
+            <input type="submit" class ="main" value="Log In" />
           </form>
-          <p>
+
+          <p id = "debugging">
             Server response (for debugging purposes):
             <br />
             <br />
