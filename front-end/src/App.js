@@ -33,8 +33,8 @@ function App() {
         </Switch>
 
       </Router>
-      {/* <Authentication/>
-      <Login/> */}
+      <Authentication/>
+      {/* <Login/> */}
 
       {/* <MyCloset/> */}
       {/* <MyOutfits/> */}
