@@ -121,6 +121,8 @@
             {
                 "size": "OS",
                 "color": "Light Gray",
+                "length": -1,
+                "width": -1,
                 "src": "/static/images/ROGER-FEDERER-CAP.png"
             }]
         }],
