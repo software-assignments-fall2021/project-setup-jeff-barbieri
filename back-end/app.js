@@ -20,18 +20,19 @@ app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming P
 'use strict';
 const fs = require('fs');
 
-//import mongoose module
-const mongoose = require('mongoose');
+// //import mongoose module
+// const mongoose = require('mongoose');
 
-//set up mongoose connection
-const mongoDB = 'mongodb+srv://cluster0.4ofnm.mongodb.net/myFirstDatabase'
-mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
+// //set up mongoose connection
+// // const mongoDB = 'mongodb+srv://cluster0.4ofnm.mongodb.net/myFirstDatabase';
+// const mongoDB = 'mongodb+srv://jeff:{<password>}@cluster0.4ofnm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+// mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
-//get the connection
-const db = mongoose.connection;
+// //get the connection
+// const db = mongoose.connection;
 
-//attach connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// //attach connection to error event (to get notification of connection errors)
+// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 // Brian getting it started
@@ -46,8 +47,6 @@ let closet = JSON.parse(closetString);
 
 // route for HTTP GET requests to /MyCloset
 app.get("/my-closet", (req, res) => {
-    // TODO get this to display in front-end/MyCloset.js
-    // We can only display one child at a time
     res.json(closet)
 
 })
@@ -59,7 +58,6 @@ let outfits = JSON.parse(outfitsString);
 
 // route for HTTP GET requests to /MyOutfits
 app.get("/my-outfits", (req, res) => {
-    // display myoutfits.json
     res.send(outfits);
 })
 
@@ -70,9 +68,8 @@ app.get("/my-outfits", (req, res) => {
 let tryonString = fs.readFileSync('./data/tryon.json').toString();
 let tryon = JSON.parse(tryonString);
 
-// route for HTTP GET requests to /TryOnd
+// route for HTTP GET requests to /TryOn
 app.get("/try-on", (req, res) => {
-    // display tryon.json
     res.send(tryon);
 })
 
@@ -85,7 +82,6 @@ let mannequin = JSON.parse(mannequinString);
 
 // route for HTTP GET requests to /MyMannequin
 app.get("/my-mannequin", (req, res) => {
-    // display tryon.json
     res.send(mannequin);
 })
 
