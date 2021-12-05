@@ -20,6 +20,9 @@ app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming P
 'use strict';
 const fs = require('fs');
 
+// display environment variables
+// console.log(process.env);
+
 // //import mongoose module
 // const mongoose = require('mongoose');
 
@@ -35,7 +38,7 @@ const fs = require('fs');
 // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
-// Brian getting it started
+// test
 app.get("/", (req, res) => {
   res.send("Hello world!")
 })
