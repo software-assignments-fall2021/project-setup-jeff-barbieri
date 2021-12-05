@@ -23,8 +23,6 @@ const fs = require('fs');
 //import mongoose module
 const mongoose = require('mongoose');
 
-// TODO Brian: Connect Database to back-end
-
 // environment variables for mongodb
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
@@ -131,18 +129,18 @@ const storage = multer.diskStorage({
 
 
 /*      JSON WEB TOKOENS    */
-// the following are used for authentication with JSON Web Tokens
-const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
-const jwt = require("jsonwebtoken")
-const passport = require("passport")
-app.use(passport.initialize()) // tell express to use passport middleware
+// // the following are used for authentication with JSON Web Tokens
+// const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
+// const jwt = require("jsonwebtoken")
+// const passport = require("passport")
+// app.use(passport.initialize()) // tell express to use passport middleware
 
-// load up some mock user data in an array... this would normally come from a database
-const users = require("./user_data.js")
+// // load up some mock user data in an array... this would normally come from a database
+// const users = require("./user_data.js")
 
-// use this JWT strategy within passport for authentication handling
-const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
-passport.use(jwtStrategy)
+// // use this JWT strategy within passport for authentication handling
+// const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
+// passport.use(jwtStrategy)
 
 
 
