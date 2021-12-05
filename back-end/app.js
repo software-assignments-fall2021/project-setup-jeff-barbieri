@@ -20,16 +20,27 @@ app.use(express.urlencoded({ extended: true })) // decode url-encoded incoming P
 'use strict';
 const fs = require('fs');
 
+//import mongoose module
+const mongoose = require('mongoose');
+
+// TODO Brian: Connect Database to back-end
+
 // display environment variables
-// console.log(process.env);
+console.log(process.env);
+const username = process.env.USER;
+const password = process.env.PASSWORD;
 
-// //import mongoose module
-// const mongoose = require('mongoose');
+//set up mongoose connection
 
-// //set up mongoose connection
-// // const mongoDB = 'mongodb+srv://cluster0.4ofnm.mongodb.net/myFirstDatabase';
-// const mongoDB = 'mongodb+srv://jeff:{<password>}@cluster0.4ofnm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-// mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
+// const mongoDB = `mongodb+srv://${username}:${password}@cluster0.4ofnm.mongodb.net/cluster0`
+// mongoose.connect(mongoDB, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// }).then(()=>{
+//   console.log("Database connected");
+// }).catch(err=>{
+//   console.log(`Database not connected: ${err}`);
+// });
 
 // //get the connection
 // const db = mongoose.connection;
@@ -122,18 +133,18 @@ const storage = multer.diskStorage({
 
 
 /*      JSON WEB TOKOENS    */
-// the following are used for authentication with JSON Web Tokens
-const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
-const jwt = require("jsonwebtoken")
-const passport = require("passport")
-app.use(passport.initialize()) // tell express to use passport middleware
+// // the following are used for authentication with JSON Web Tokens
+// const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
+// const jwt = require("jsonwebtoken")
+// const passport = require("passport")
+// app.use(passport.initialize()) // tell express to use passport middleware
 
-// load up some mock user data in an array... this would normally come from a database
-const users = require("./user_data.js")
+// // load up some mock user data in an array... this would normally come from a database
+// const users = require("./user_data.js")
 
-// use this JWT strategy within passport for authentication handling
-const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
-passport.use(jwtStrategy)
+// // use this JWT strategy within passport for authentication handling
+// const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
+// passport.use(jwtStrategy)
 
 
 
