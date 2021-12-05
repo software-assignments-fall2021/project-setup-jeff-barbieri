@@ -32,21 +32,21 @@ const password = process.env.PASSWORD;
 
 //set up mongoose connection
 
-// const mongoDB = `mongodb+srv://${username}:${password}@cluster0.4ofnm.mongodb.net/cluster0`
-// mongoose.connect(mongoDB, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// }).then(()=>{
-//   console.log("Database connected");
-// }).catch(err=>{
-//   console.log(`Database not connected: ${err}`);
-// });
+const mongoDB = `mongodb+srv://${username}:${password}@cluster0.4ofnm.mongodb.net/Cluster0?retryWrites=true&w=majority`
+mongoose.connect(mongoDB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(()=>{
+  console.log("Database connected");
+}).catch(err=>{
+  console.log(`Database not connected: ${err}`);
+});
 
-// //get the connection
-// const db = mongoose.connection;
+//get the connection
+const db = mongoose.connection;
 
-// //attach connection to error event (to get notification of connection errors)
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+//attach connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 // test
