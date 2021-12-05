@@ -27,12 +27,11 @@ const mongoose = require('mongoose');
 
 // display environment variables
 console.log(process.env);
-const username = process.env.USER;
+const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
 
 //set up mongoose connection
-
-const mongoDB = `mongodb+srv://${username}:${password}@cluster0.4ofnm.mongodb.net/Cluster0?retryWrites=true&w=majority`
+const mongoDB = `mongodb+srv://${username}:${password}@cluster0.4ofnm.mongodb.net/cluster0?retryWrites=true&w=majority`;
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true
