@@ -1,90 +1,90 @@
 import React, { useState, useEffect } from "react"
-import { Redirect } from "react-router-dom"
+import { Navigate } from "react-router-dom"
+// import { Navigate, useSearchParams } from "react-router-dom"
 import axios from "axios"
 // import logo from './logo.svg';
 import "./Login.css"
 
 const Login = props => {
+
+  
+  // let [urlSearchParams] = useSearchParams() // get access to the URL query string parameters
+
   // create state variables to hold username and password
-  const [status, setStatus] = useState({}) // the API will return an object indicating the login status in a success field of the response object
+  const [response, setResponse] = useState({}) // the API will return an object with a JWT token, if the user logs in successfully
+  const [errorMessage, setErrorMessage] = useState("")
 
-  // if the user's logged-in status changes, call the setuser function that was passed to this component from the PrimaryNav component.
+  // if the user got here by trying to access our Protected page, there will be a query string parameter called 'error' with the value 'protected'
+  // useEffect(() => {
+  //   const qsError = urlSearchParams.get("error") // get any 'error' field in the URL query string
+  //   if (qsError === "protected")
+  //     setErrorMessage("Please log in to view our fabulous protected content.")
+  // }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // if the user's logged-in status changes, save the token we receive from the server
   useEffect(() => {
-    // if the login was a success, call the setuser function that was passed to this component as a prop
-    if (status.success) {
-      console.log(`User successfully logged in: ${status.username}`)
-      props.setuser(status)
+    // if the user is logged-in, save the token to local storage
+    if (response.success && response.token) {
+      console.log(`User successfully logged in: ${response.username}`)
+      localStorage.setItem("token", response.token) // store the token into localStorage
     }
-  }, [status])
+  }, [response])
 
+  // what to do when the user clicks the submit buton on the form
   const handleSubmit = async e => {
     // prevent the HTML form from actually submitting... we use React's javascript code instead
     e.preventDefault()
 
-    // get the username and password from the form fields
-    const username = e.target.username.value // gets the value of the field in the submitted form with name='username'
-    const password = e.target.password.value // gets the value of the field in the submitted form with name='password'
-
-    // send form data to API to authenticate
-    const formData = new FormData()
-    formData.append("username", username)
-    formData.append("password", password)
-
     try {
-      // send the request to the server api to authenticate
-      const response = await axios({
-        method: "post",
-        url: "https://my.api.mockaroo.com/login.json?key=d9ddfc40",
-        data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
-      })
+      // create an object with the data we want to send to the server
+      const requestData = {
+        username: e.target.username.value, // gets the value of the field in the submitted form with name='username'
+        password: e.target.password.value, // gets the value of the field in the submitted form with name='password',
+      }
+      // send a POST request with the data to the server api to authenticate
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND}/login`,
+        requestData
+      )
       // store the response data into the data state variable
-      console.log(response.data)
-      setStatus(response.data)
+      console.log(`Server response: ${JSON.stringify(response.data, null, 0)}`)
+      setResponse(response.data)
     } catch (err) {
-      // throw an error
-      throw new Error(err)
+      // request failed... user entered invalid credentials
+      setErrorMessage(
+        "You entered invalid credentials.  Try harder!  Check out the usernames in the server's user_data.js file."
+      )
     }
   }
 
   // if the user is not logged in, show the login form
-  if (!status.success)
+  if (!response.success)
     return (
       <div className="Login">
         <h1>Log in</h1>
+        {errorMessage ? <p className="error">{errorMessage}</p> : ""}
         <section className="main-content">
-          {/* <img alt="login!" src="https://picsum.photos/200?page=home" /> */}
           <form onSubmit={handleSubmit}>
             {
               //handle error condition
             }
-    
             <label>Username: </label>
-        
-        
-            <input type="text" name="username" placeholder="Username" />
+            <input type="text" name="username" placeholder="username" />
             <br />
             <br />
             <label>Password: </label>
-       
-            <input type="password" name="password" placeholder="Password" />
+            <input type="password" name="password" placeholder="password" />
             <br />
             <br />
-            <input type="submit" class ="main" value="Log In" />
+            <input type="submit" value="Log In" />
           </form>
-
-          <p id = "debugging">
-            Server response (for debugging purposes):
-            <br />
-            <br />
-            {JSON.stringify(status, null, 2)}
-          </p>
         </section>
       </div>
     )
   // otherwise, if the user has successfully logged-in, redirect them to a different page
   // in this example, we simply redirect to the home page, but a real app would redirect to a page that shows content only available to logged-in users
-  else return <Redirect to="/" />
+  // else return <Navigate to="/protected" />
+  // else return <Navigate to="/" /> //changed to this for now, commented above out
 }
 
 export default Login

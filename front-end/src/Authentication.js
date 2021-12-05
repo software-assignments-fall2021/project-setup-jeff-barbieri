@@ -14,12 +14,14 @@ const Authentication = () => {
              <p>
         
                 <input type = "submit" class = "main" value = "Log In" />
-       
+                <Router>
+                <Link to="/Login" className="btn btn-primary">Sign up</Link>
+                </Router>
                 <br />
                 <br />
   
                 <input type = "submit" class = "main" value="Create Account" />
-      
+                
                 <input type="submit" id = "continue" value="Continue Without Account"  />
                 {/* The following is supposed to continue to /MyCloset onClick but I can't figure it out now
                 Need to support onClick */}
