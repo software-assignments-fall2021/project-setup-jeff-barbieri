@@ -33,7 +33,8 @@ const Clothing = new Schema({
   size: String, //decided not to enumerate size
   source: String, //image URL
   alt: String //alt text for image
-})
+},
+{ collection : 'apparel' })
 
 //schema for each category of clothing
 
@@ -47,7 +48,8 @@ const Tops = new Schema({
   width: Number,
   sleeve: Number,
   source: String
-})
+},
+{ collection : 'apparel' })
 
 //schema for clothing bottoms
 const Bottoms = new Schema({
@@ -59,7 +61,8 @@ const Bottoms = new Schema({
   rise: Number,
   inseam: Number,
   source: String
-})
+},
+{ collection : 'apparel' })
 
 //schema for footwear
 const Footwear = new Schema({
@@ -70,7 +73,8 @@ const Footwear = new Schema({
   insole: Number,
   width: Number,
   source: String
-})
+},
+{ collection : 'apparel' })
 
 //schema for accessories
 //NOTE: this is the most arbitrary category, so this may be revised
@@ -82,7 +86,8 @@ const Accessories = new Schema({
   length: Number,
   width: Number,
   source: String
-})
+},
+{ collection : 'apparel' })
 
 //schema for closet values
 const Closet = new Schema({
@@ -91,7 +96,8 @@ const Closet = new Schema({
   bottoms: [],
   footwear: [],
   accessories: []
-})
+},
+{ collection : 'apparel' })
 
 //schema for mannequin values
 const Mannequin = new Schema({
@@ -103,14 +109,16 @@ const Mannequin = new Schema({
   waist: Number,
   weight: Number,
   body: Number
-})
+},
+{ collection : 'apparel' })
 
 //schema for user authentication values
 const Login = new Schema({
   username: String,
   // email: String, not sure if our login includes email address
   password: String //this will have to be encrypted in our .env file
-})
+},
+{ collection : 'apparel' })
 
 //schema for try on values
 const TryOn = new Schema({
@@ -120,13 +128,15 @@ const TryOn = new Schema({
   source: String, //image URL
   alt: String, //alt text for image
   inCloset: Boolean //store if article is in closet
-})
+},
+{ collection : 'apparel' })
 
 //schema for outfit values
 const Outfits = new Schema({
   //outfits will be array of clothing items (array of arrays)
   outfits: [[]]
-})
+},
+{ collection : 'apparel' })
 
 // environment variables for mongodb
 const username = process.env.USERNAME;
