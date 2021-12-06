@@ -163,6 +163,17 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.get("/", (req, res) => {
   res.send("Hello world!")
 })
+
+//this is an abstraction of searching the database, in which you can pass in:
+//name = collection name
+//query = query value
+//cb = callback function
+function find (name, query, cb) {
+  mongoose.connection.db.collection(name, function (err, collection) {
+     collection.find(query).toArray(cb);
+ });
+} //not in use yet, just thought it might be useful if we have trouble
+
 // -----------------------------------------------------------
 /* MY CLOSET */
 // read mycloset.json
@@ -350,9 +361,6 @@ const storage = multer.diskStorage({
 // // use this JWT strategy within passport for authentication handling
 // const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
 // passport.use(jwtStrategy)
-
-
-
 
   // export express app to make it available to other modules
 module.exports = app 
