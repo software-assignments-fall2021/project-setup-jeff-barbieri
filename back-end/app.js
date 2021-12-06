@@ -23,6 +23,111 @@ const fs = require('fs');
 //import mongoose module
 const mongoose = require('mongoose');
 
+//import schema models
+const Schema = mongoose.Schema;
+
+//schema for clothing values
+const Clothing = new Schema({
+  name: String, //name of clothing article
+  type: String, //clothing type, maybe replace with int later?
+  size: String, //decided not to enumerate size
+  source: String, //image URL
+  alt: String //alt text for image
+})
+
+//schema for each category of clothing
+
+//schema for clothing tops
+const Tops = new Schema({
+  name: String,
+  type: String,
+  size: String,
+  color: String,
+  length: Number,
+  width: Number,
+  sleeve: Number,
+  source: String
+})
+
+//schema for clothing bottoms
+const Bottoms = new Schema({
+  name: String,
+  type: String,
+  size: String,
+  color: String,
+  waist: Number,
+  rise: Number,
+  inseam: Number,
+  source: String
+})
+
+//schema for footwear
+const Footwear = new Schema({
+  name: String,
+  type: String,
+  size: Number,
+  color: String,
+  insole: Number,
+  width: Number,
+  source: String
+})
+
+//schema for accessories
+//NOTE: this is the most arbitrary category, so this may be revised
+const Accessories = new Schema({
+  name: String,
+  type: String,
+  size: String,
+  color: String,
+  length: Number,
+  width: Number,
+  source: String
+})
+
+//schema for closet values
+const Closet = new Schema({
+  //all entries should be arrays of each clothing element type
+  tops: [],
+  bottoms: [],
+  footwear: [],
+  accessories: []
+})
+
+//schema for mannequin values
+const Mannequin = new Schema({
+  sex: Boolean, //I believe our visualizer only supports M/F, but this can be updated
+  height: Number,
+  shirt: Number,
+  pants: Number,
+  jacket: Number,
+  waist: Number,
+  weight: Number,
+  body: Number
+})
+
+//schema for user authentication values
+const Login = new Schema({
+  username: String,
+  // email: String, not sure if our login includes email address
+  password: String //this will have to be encrypted in our .env file
+})
+
+//schema for try on values
+const TryOn = new Schema({
+  name: String, //name of clothing article
+  type: String, //clothing type, maybe replace with int later?
+  size: String,
+  source: String, //image URL
+  alt: String, //alt text for image
+  inCloset: Boolean //store if article is in closet
+})
+
+//schema for outfit values
+const Outfits = new Schema({
+  //outfits will be array of clothing items (array of arrays)
+  outfits: [[]]
+})
+
 // environment variables for mongodb
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
@@ -44,7 +149,6 @@ const db = mongoose.connection;
 //attach connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
 // test
 app.get("/", (req, res) => {
   res.send("Hello world!")
@@ -58,8 +162,31 @@ let closet = JSON.parse(closetString);
 // route for HTTP GET requests to /MyCloset
 app.get("/my-closet", (req, res) => {
     res.json(closet)
-
 })
+
+//mongoose query for my closet
+/* const ClosetInstance = mongoose.model('MyCloset', Closet);
+app.get('/find/:my-closet', cors(), function(req, res) {
+  let query = req.params.query;
+
+  ClosetInstance.find({
+      'tops': query,
+      'bottoms': query,
+      'footwear': query,
+      'accessories': query
+    }, 
+    function(err, result) {
+      if (err) throw err;
+      if (result) {
+          res.json(result)
+      } else {
+          res.send(JSON.stringify({
+              error : 'Error'
+          }))
+      }
+  })
+})  */
+
 // -----------------------------------------------------------
 /*MY OUTFITS*/
 // read myoutfits.json
