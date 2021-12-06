@@ -198,6 +198,26 @@ app.get("/my-outfits", (req, res) => {
     res.send(outfits);
 })
 
+//mongoose query for my outfits
+/* const OutfitsInstance = mongoose.model('MyOutfits', Outfits);
+app.get('/find/:my-outfits', cors(), function(req, res) {
+  let query = req.params.query;
+
+  OutfitsInstance.find({
+      'outfits': query,
+    }, 
+    function(err, result) {
+      if (err) throw err;
+      if (result) {
+          res.json(result)
+      } else {
+          res.send(JSON.stringify({
+              error : 'Error'
+          }))
+      }
+  })
+})  */
+
 // -----------------------------------------------------------
 /*TRY ON*/
 
@@ -210,6 +230,31 @@ app.get("/try-on", (req, res) => {
     res.send(tryon);
 })
 
+//mongoose query for try on
+/* const TryOnInstance = mongoose.model('TryOn', TryOn);
+app.get('/find/:try-on', cors(), function(req, res) {
+  let query = req.params.query;
+
+  TryOnInstance.find({
+      'name': query, 
+      'type': query, 
+      'size': query,
+      'source': query, 
+      'alt': query, 
+      'inCloset': query 
+    }, 
+    function(err, result) {
+      if (err) throw err;
+      if (result) {
+          res.json(result)
+      } else {
+          res.send(JSON.stringify({
+              error : 'Error'
+          }))
+      }
+  })
+})  */
+
 // -----------------------------------------------------------
 /*MY MANNEQUIN*/
 
@@ -221,6 +266,33 @@ let mannequin = JSON.parse(mannequinString);
 app.get("/my-mannequin", (req, res) => {
     res.send(mannequin);
 })
+
+//mongoose query for my mannequin
+/* const MannequinInstance = mongoose.model('MyMannequin', Mannequin);
+app.get('/find/:my-mannequin', cors(), function(req, res) {
+  let query = req.params.query;
+
+  MannequinInstance.find({
+      'sex': query, 
+      'height': query,
+      'shirt': query,
+      'pants': query,
+      'jacket': query,
+      'waist': query,
+      'weight': query,
+      'body': query
+    }, 
+    function(err, result) {
+      if (err) throw err;
+      if (result) {
+          res.json(result)
+      } else {
+          res.send(JSON.stringify({
+              error : 'Error'
+          }))
+      }
+  })
+})  */
 
 /*AUTHENTICATION PAGE ROUTING*/
 
