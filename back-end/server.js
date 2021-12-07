@@ -6,6 +6,13 @@ const server = require("./app") // load up the web server
 // import routes
 const authRoutes = require("./routes/auth");
 
+// middlewares
+app.use(express.json()); // for body parser
+
+// Retrieving mongoDB connection from App.js
+const mongoDB = server.mongoDB
+
+console.log(mongoDB)
 
 //route middlewares
 app.use("/api/user", authRoutes)
