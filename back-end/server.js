@@ -219,7 +219,8 @@ app.get('/closet', cors(), function(req, res) {
 
   console.log(query)
 
-  ClosetInstance.find().then( (result) => { 
+  //for closet, only return items in user's closet
+  ClosetInstance.find({ inCloset: { $eq: true } }).then( (result) => { 
     res.json(result)
   } ).catch((err) => {res.send('Error')})
 
@@ -238,7 +239,7 @@ app.get("/my-outfits", (req, res) => {
 
 //mongoose query for my outfits
 /* const OutfitsInstance = mongoose.model('MyOutfits', Outfits);
-app.get('/outfits', cors(), function(req, res) {                      NOTE: WE NEED TO CREATE OUTFITS COLLECTION, OR MAKE PART OF CLOSET
+app.get('/closet/outfits', cors(), function(req, res) {                      NOTE: WE NEED TO CREATE OUTFITS COLLECTION, OR MAKE PART OF CLOSET
   let query = req.params.query;
 
   OutfitsInstance.find().then( (result) => { 
@@ -333,7 +334,7 @@ app.post('/mannequin', (req, res) => {
   })
 })
 
-app.post('/outfits', (req, res) => {                    //IF WE COMBINE OUTFITS AND CLOSET, THESE NEED TO LINK TO SAME DIRECTORY
+app.post('/closet/outfits', (req, res) => {                    //IF WE COMBINE OUTFITS AND CLOSET, THESE NEED TO LINK TO SAME DIRECTORY
   let outfitData = new Outfits(req.body);
   outfitData.save((err) =>{
     if(err)
