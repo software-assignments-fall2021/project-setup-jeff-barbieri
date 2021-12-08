@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 // we dont need this
 //const server = require("./app") // load up the web server
-
+//-----------------------------------------------------
 // import routes
 const authRoutes = require("./routes/auth");
 
@@ -183,6 +183,24 @@ function find (name, query, cb) {
      collection.find(query).toArray(cb);
  });
 } //not in use yet, just thought it might be useful if we have trouble
+
+// -----------------------------------------------------------
+/* BRIAN: temporary LOCAL apparel data this should be replaced
+with database api */
+/* APPAREL DATA */
+// read apparel.json
+let apparelString = fs.readFileSync('./data/apparel.json').toString();
+let apparel = JSON.parse(apparelString);
+
+// route for HTTP GET requests to /MyCloset
+app.get("/apparel", (req, res) => {
+    res.json(apparel)
+})
+
+
+
+
+// -----------------------------------------------------------
 
 // -----------------------------------------------------------
 /* MY CLOSET */
