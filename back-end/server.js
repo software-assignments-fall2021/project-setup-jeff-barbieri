@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 // we dont need this
 //const server = require("./app") // load up the web server
-
+//-----------------------------------------------------
 // import routes
 const authRoutes = require("./routes/auth");
 
@@ -148,9 +148,8 @@ const Outfits = new Schema({
 { collection : 'apparel' })
 
 // environment variables for mongodb
-const username = process.env.USERNAME;
+const username = process.env.USERNAME.toLowerCase();
 const password = process.env.PASSWORD;
-
 
 //set up mongoose connection
 const mongoDB = `mongodb+srv://${username}:${password}@cluster0.4ofnm.mongodb.net/user?retryWrites=true&w=majority`;
@@ -185,6 +184,24 @@ function find (name, query, cb) {
 } //not in use yet, just thought it might be useful if we have trouble
 
 // -----------------------------------------------------------
+/* BRIAN: temporary LOCAL apparel data this should be replaced
+with database api */
+/* APPAREL DATA */
+// read apparel.json
+let apparelString = fs.readFileSync('./data/apparel.json').toString();
+let apparel = JSON.parse(apparelString);
+
+// route for HTTP GET requests to /MyCloset
+app.get("/apparel", (req, res) => {
+    res.json(apparel)
+})
+
+
+
+
+// -----------------------------------------------------------
+
+// -----------------------------------------------------------
 /* MY CLOSET */
 // read mycloset.json
 let closetString = fs.readFileSync('./data/mycloset.json').toString();
@@ -197,25 +214,16 @@ app.get("/my-closet", (req, res) => {
 
 //mongoose query for my closet
 /* const ClosetInstance = mongoose.model('MyCloset', Closet);
-app.get('/find/:my-closet', cors(), function(req, res) {
-  let query = req.params.query;
+app.get('/closet', cors(), function(req, res) {
+  let query = req.params.query; req.params.tops/req.params.query.tops
 
-  ClosetInstance.find({
-      'tops': query,
-      'bottoms': query,
-      'footwear': query,
-      'accessories': query
-    }, 
-    function(err, result) {
-      if (err) throw err;
-      if (result) {
-          res.json(result)
-      } else {
-          res.send(JSON.stringify({
-              error : 'Error'
-          }))
-      }
-  })
+  console.log(query)
+
+  //for closet, only return items in user's closet
+  ClosetInstance.find({ inCloset: { $eq: true } }).then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
+
 })  */
 
 // -----------------------------------------------------------
@@ -231,23 +239,13 @@ app.get("/my-outfits", (req, res) => {
 
 //mongoose query for my outfits
 /* const OutfitsInstance = mongoose.model('MyOutfits', Outfits);
-app.get('/find/:my-outfits', cors(), function(req, res) {
+app.get('/closet/outfits', cors(), function(req, res) {                      NOTE: WE NEED TO CREATE OUTFITS COLLECTION, OR MAKE PART OF CLOSET
   let query = req.params.query;
 
-  OutfitsInstance.find({
-      'outfits': query,
-    }, 
-    function(err, result) {
-      if (err) throw err;
-      if (result) {
-          res.json(result)
-      } else {
-          res.send(JSON.stringify({
-              error : 'Error'
-          }))
-      }
-  })
-})  */
+  OutfitsInstance.find().then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
+})  
 
 // -----------------------------------------------------------
 /*TRY ON*/
@@ -263,27 +261,12 @@ app.get("/try-on", (req, res) => {
 
 //mongoose query for try on
 /* const TryOnInstance = mongoose.model('TryOn', TryOn);
-app.get('/find/:try-on', cors(), function(req, res) {
+app.get('/apparel', cors(), function(req, res) {
   let query = req.params.query;
 
-  TryOnInstance.find({
-      'name': query, 
-      'type': query, 
-      'size': query,
-      'source': query, 
-      'alt': query, 
-      'inCloset': query 
-    }, 
-    function(err, result) {
-      if (err) throw err;
-      if (result) {
-          res.json(result)
-      } else {
-          res.send(JSON.stringify({
-              error : 'Error'
-          }))
-      }
-  })
+  TryOnInstance.find().then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
 })  */
 
 // -----------------------------------------------------------
@@ -300,29 +283,12 @@ app.get("/my-mannequin", (req, res) => {
 
 //mongoose query for my mannequin
 /* const MannequinInstance = mongoose.model('MyMannequin', Mannequin);
-app.get('/find/:my-mannequin', cors(), function(req, res) {
+app.get('/mannequin', cors(), function(req, res) {                        NOTE: WE NEED TO CREATE MANNEQUIN COLLECTION
   let query = req.params.query;
 
-  MannequinInstance.find({
-      'sex': query, 
-      'height': query,
-      'shirt': query,
-      'pants': query,
-      'jacket': query,
-      'waist': query,
-      'weight': query,
-      'body': query
-    }, 
-    function(err, result) {
-      if (err) throw err;
-      if (result) {
-          res.json(result)
-      } else {
-          res.send(JSON.stringify({
-              error : 'Error'
-          }))
-      }
-  })
+  MannequinInstance.find().then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
 })  */
 
 /*AUTHENTICATION PAGE ROUTING*/
@@ -356,7 +322,35 @@ const storage = multer.diskStorage({
   })
   const upload = multer({ storage: storage })
 
+/* POST REQUESTS */
 
+//create user mannequin
+app.post('/mannequin', (req, res) => {
+  let mannequinData = new Mannequin(req.body);
+  mannequinData.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+  })
+})
+
+app.post('/closet/outfits', (req, res) => {                    //IF WE COMBINE OUTFITS AND CLOSET, THESE NEED TO LINK TO SAME DIRECTORY
+  let outfitData = new Outfits(req.body);
+  outfitData.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+  })
+})
+
+app.post('/closet', (req, res) => {                    //IF WE COMBINE OUTFITS AND CLOSET, THESE NEED TO LINK TO SAME DIRECTORY
+  let closetData = new Closet(req.body);
+  closetData.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+  })
+})
 
 /*      JSON WEB TOKOENS    */
 
