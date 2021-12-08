@@ -321,7 +321,35 @@ const storage = multer.diskStorage({
   })
   const upload = multer({ storage: storage })
 
+/* POST REQUESTS */
 
+//create user mannequin
+app.post('/mannequin', (req, res) => {
+  let mannequinData = new Mannequin(req.body);
+  mannequinData.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+  })
+})
+
+app.post('/outfits', (req, res) => {                    //IF WE COMBINE OUTFITS AND CLOSET, THESE NEED TO LINK TO SAME DIRECTORY
+  let outfitData = new Outfits(req.body);
+  outfitData.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+  })
+})
+
+app.post('/closet', (req, res) => {                    //IF WE COMBINE OUTFITS AND CLOSET, THESE NEED TO LINK TO SAME DIRECTORY
+  let closetData = new Closet(req.body);
+  closetData.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+  })
+})
 
 /*      JSON WEB TOKOENS    */
 
