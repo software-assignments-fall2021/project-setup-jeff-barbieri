@@ -1,0 +1,189 @@
+[{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c1777488"
+  },
+  "name": "U CREW NECK SHORT-SLEEVE T-SHIRT",
+  "category": "Tops",
+  "type": "Shirts",
+  "size": "XS",
+  "color": "White",
+  "length": 26,
+  "width": 19.667,
+  "sleeve": 17,
+  "src": "/static/images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c1777489"
+  },
+  "name": "U CREW NECK SHORT-SLEEVE T-SHIRT",
+  "category": "Tops",
+  "type": "Shirts",
+  "size": "S",
+  "color": "White",
+  "length": 27.167,
+  "width": 20.857,
+  "sleeve": 17.714,
+  "src": "/static/images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c177748a"
+  },
+  "name": "U SWEAT LONG-SLEEVE PULLOVER HOODIE",
+  "category": "Tops",
+  "type": "Sweatshirts",
+  "size": "XS",
+  "color": "Khaki",
+  "length": 25.6,
+  "width": 21.5,
+  "sleeve": 33.5,
+  "src": "/static/images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c177748b"
+  },
+  "name": "U SWEAT LONG-SLEEVE PULLOVER HOODIE",
+  "category": "Tops",
+  "type": "Sweatshirts",
+  "size": "S",
+  "color": "Khaki",
+  "length": 26.375,
+  "width": 22.667,
+  "sleeve": 34.444,
+  "src": "/static/images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c177748c"
+  },
+  "name": "U WIDE-FIT WORK PANTS",
+  "category": "Bottoms",
+  "type": "Pants",
+  "size": "30",
+  "color": "Khaki",
+  "waist": 31.111,
+  "rise": 13,
+  "inseam": 30,
+  "src": "/static/images/U-WIDE-FIT-WORK-PANTS.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c177748d"
+  },
+  "name": "U WIDE-FIT WORK PANTS",
+  "category": "Bottoms",
+  "type": "Pants",
+  "size": "32",
+  "color": "Khaki",
+  "waist": 33.5,
+  "rise": 13.4,
+  "inseam": 30.333,
+  "src": "/static/images/U-WIDE-FIT-WORK-PANTS.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c177748e"
+  },
+  "name": "DRY STRETCH EASY SHORTS",
+  "category": "Bottoms",
+  "type": "Shorts",
+  "size": "S",
+  "color": "Brown",
+  "waist": 28.333,
+  "rise": 10.833,
+  "inseam": 8.667,
+  "src": "/static/images/DRY-STRETCH-EASY-SHORTS.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c177748f"
+  },
+  "name": "DRY STRETCH EASY SHORTS",
+  "category": "Bottoms",
+  "type": "Shorts",
+  "size": "M",
+  "color": "Brown",
+  "waist": 30.714,
+  "rise": 11,
+  "inseam": 9,
+  "src": "/static/images/DRY-STRETCH-EASY-SHORTS.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c1777490"
+  },
+  "name": "KNITTED LACE-UP SNEAKERS",
+  "category": "Footwear",
+  "type": "Sneakers",
+  "size": "9",
+  "color": "White",
+  "insole": 11.333,
+  "width": 3.667,
+  "src": "/static/images/KNITTED-LACE-UP-SNEAKERS.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c1777491"
+  },
+  "name": "KNITTED LACE-UP SNEAKERS",
+  "category": "Footwear",
+  "type": "Sneakers",
+  "size": "10",
+  "color": "White",
+  "insole": 11.75,
+  "width": 3.75,
+  "src": "/static/images/KNITTED-LACE-UP-SNEAKERS.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c1777492"
+  },
+  "name": "CHUKKA BOOTS",
+  "category": "Footwear",
+  "type": "Boots",
+  "size": "9",
+  "color": "Black",
+  "insole": 11.333,
+  "width": 3.667,
+  "src": "/static/images/CHUKKA-BOOTS.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c1777493"
+  },
+  "name": "CHUKKA BOOTS",
+  "category": "Footwear",
+  "type": "Boots",
+  "size": "10",
+  "color": "White",
+  "insole": 11.75,
+  "width": 3.75,
+  "src": "/static/images/CHUKKA-BOOTS.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c1777494"
+  },
+  "name": "ROGER FEDERER CAP",
+  "category": "Accessories",
+  "type": "Hats",
+  "size": "OS",
+  "color": "Light Gray",
+  "length": -1,
+  "width": -1,
+  "src": "/static/images/ROGER-FEDERER-CAP.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c1777495"
+  },
+  "name": "ITALIAN LEATHER VINTAGE BELT",
+  "category": "Accessories",
+  "type": "Belts",
+  "size": "M",
+  "color": "Dark Brown",
+  "length": 40.167,
+  "width": 1.5,
+  "src": "/static/images/ITALIAN-LEATHER-VINTAGE-BELT.png"
+},{
+  "_id": {
+    "$oid": "61abe18fa6b2c220c1777496"
+  },
+  "name": "ITALIAN LEATHER VINTAGE BELT",
+  "category": "Accessories",
+  "type": "Belts",
+  "size": "L",
+  "color": "Dark Brown",
+  "length": 43.714,
+  "width": 1.5,
+  "src": "/static/images/ITALIAN-LEATHER-VINTAGE-BELT.png"
+}]

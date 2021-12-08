@@ -188,6 +188,23 @@ function find (name, query, cb) {
  });
 } //not in use yet, just thought it might be useful if we have trouble
 
+
+// -----------------------------------------------------------
+/* BRIAN: temporary LOCAL apparel data this should be replaced
+with database api */
+/* APPAREL DATA */
+// read apparel.json
+let apparelString = fs.readFileSync('./data/apparel.json').toString();
+let apparel = JSON.parse(apparelString);
+
+// route for HTTP GET requests to /MyCloset
+app.get("/apparel", (req, res) => {
+    res.json(apparel)
+})
+
+
+
+
 // -----------------------------------------------------------
 /* MY CLOSET */
 // read mycloset.json
@@ -361,8 +378,7 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage })
 
 
-
-/*      JSON WEB TOKOENS    */
+/*      JSON WEB TOKENS    */
 
 // the following are used for authentication with JSON Web Tokens
 const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
@@ -377,8 +393,15 @@ const users = require("./user_data.js")
 const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
 passport.use(jwtStrategy)
 
-  // export express app to make it available to other modules
-module.exports = {
-  app : app,
-  mongoDB : mongoDB
-}
+
+/* ---------------------------------------------------------------*/
+// Export express app to make it available to other modules
+
+// SERVER CRASH, maybe a better way to do this
+// module.exports = {
+//   app : app,
+//   mongoDB : mongoDB
+// }
+
+// This works
+module.exports = app
