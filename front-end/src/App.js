@@ -13,7 +13,9 @@ function App() {
     <div className="App">
       
       <Router>
-        <NavMenu/>
+      <NavMenu/>
+ 
+        
         <Switch>
 
           <Route path='/MyCloset'>
@@ -29,7 +31,10 @@ function App() {
           <Route path='/TryOn'>
             <TryOn/>
           </Route>
-          
+
+          {/* <Route path = '/Authentication'>
+          <Authentication/>
+        </Route> */}
         </Switch>
 
       </Router>
