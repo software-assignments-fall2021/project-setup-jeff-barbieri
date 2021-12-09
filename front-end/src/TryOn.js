@@ -49,7 +49,7 @@ const sizesCustomStyles = {
     }),
   };
 
-// display recent clothes tried on
+
 const TryOn = () => {
   // displays Tops
   function Recents() {
@@ -79,33 +79,69 @@ const TryOn = () => {
     return null;
   }
 
+  // search function for Apparel 
+  function Apparel() {
+    console.log("starting apparel function")
+    const [data, setData] = React.useState([]);
+
+    // searchTerm: input, setSearchTerm: data
+    const [searchTerm, setSearchTerm] = React.useState("");
+
+    React.useEffect(() => {
+        fetch("/apparel")
+            .then((res) => res.json())
+            .then((data) => setData(data))
+            .catch(console.error);
+    }, []);
+    console.log(data)
+    if (data) {
+        console.log("data exists");
+        return (
+            <React.Fragment>
+                <form id="form">
+                  <input type="text" id="query" name="q"
+                      placeholder="Search Uniqlo Clothing..."
+                      aria-label="Search Uniqlo Clothing"
+                      onChange={(event)=>{
+                        setSearchTerm(event.target.value);
+                      }}
+                  />
+                </form>
+                {data.filter((val)=>{
+                  if(searchTerm==""){
+                    return null
+                  }
+                  else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                    return val
+                  }
+                }).map((val, key) => (
+                    <Clothing
+                        key = {key}
+                        heading = {val.name.replace('-', ' ')}
+                        alt = {val.name}
+                        // TODO fix this image not loading
+                        src = {"../../database" + val.src}
+                    />
+                ))}
+            </React.Fragment>
+        );
+    }
+    return null;
+  }
+  
+
 	return(
 		<div className="tryOnPage">
 			<div className="heading">Try On</div>
 
-            {/* TODO, in the future this search bar will search through a Clothing database */}
-            {/* search bar */}
-
+            
             <div className="heading2">Try Something On!</div>
 
-            <div className="search-container">
-                <form role="search" id="form">
-                    <input type="search" id="query" name="q"
-                        placeholder="Paste URL Here"
-                        aria-label="Search through clothing types">
-                    </input>
-                    <button>
-                        <svg viewBox="0 0 1024 1024"><path className="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg>
-                    </button>
-                </form>
-                {/* <form>
-                    <input type="text" placeholder="Search.." name="search"></input>
-                    <button type="submit"><i></i></button>
-                </form> */}
-            </div>
-            {/* TODO mannequin*/}
-            <img id="mannequin" src="https://picsum.photos/220/220" alt="Mannequin"></img>
-            
+            {/* Brian TODO: diplay Uniqlo clothing according to search filter */}
+            <section className="apparel">
+              {Apparel()}
+            </section>
+
             <div className="dropdown-menu">
                 <Select defaultValue={{ label: "Select Size", value: 0 }} options={sizes} />
             </div>
@@ -127,10 +163,6 @@ const TryOn = () => {
             {/* Recent Try-Ons section */}
             <section className="recents">
               {Recents()}
-              {/* <Clothing heading="Recent Clothing One Name" alt="Clothing One" src="https://picsum.photos/220/220" />
-              <Clothing heading="Recent Clothing Two Name" alt="Clothing Two" src="https://picsum.photos/220/220" />
-              <Clothing heading="Recent Clothing Three Name" alt="Clothing Three" src="https://picsum.photos/220/220" />
-              <Clothing heading="Recent Clothing Four Name" alt="Clothing Four" src="https://picsum.photos/220/220" /> */}
             </section>
 		</div>
 	)
