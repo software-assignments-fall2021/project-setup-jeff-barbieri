@@ -57,7 +57,7 @@ router.post("/login", async (req, res) => {
   console.log("req.body PASSWORD? : ", req.body.password);
   console.log("user PASSWORD? : ", user.password);
   
-  if (req.body.password!=user.password)
+  if (req.body.password != user.password)
     return res.status(400).json({ error: "Password is wrong" });
  
   // create token

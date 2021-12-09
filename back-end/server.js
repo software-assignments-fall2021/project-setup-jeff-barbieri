@@ -450,7 +450,8 @@ app.use("/api/user", authRoutes)
 /* -------------------------------------------------------------------*/
 
 // this route is protected with token
-app.use("/api/dashboard", verifyToken, dashboardRoutes);
+app.use("/MyCloset", verifyToken, dashboardRoutes);
+
 
 
 // Listen on port 5000
