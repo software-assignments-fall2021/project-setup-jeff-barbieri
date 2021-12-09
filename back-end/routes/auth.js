@@ -1,9 +1,10 @@
 const router = require("express").Router();
+const jwt = require("jsonwebtoken");
 const User = require("../model/User");
-const bcrypt = require("bcrypt");   //i thought it should be require("bcryptjs") but this works instead?
+const bcrypt = require("bcryptjs");   //i thought it should be require("bcryptjs") but this works instead?
 
 // validation
-const { registerValidation } = require("../validation");
+const { registerValidation, loginValidation } = require("../validation");
 
 //register route
 router.post("/register", async (req, res) => {
@@ -53,7 +54,10 @@ router.post("/login", async (req, res) => {
   
   // check for password correctness
   const validPassword = await bcrypt.compare(req.body.password, user.password);
-  if (!validPassword)
+  console.log("req.body PASSWORD? : ", req.body.password);
+  console.log("user PASSWORD? : ", user.password);
+  
+  if (req.body.password!=user.password)
     return res.status(400).json({ error: "Password is wrong" });
  
   // create token
@@ -63,7 +67,7 @@ router.post("/login", async (req, res) => {
       name: user.name,
       id: user._id,
     },
-    process.env.TOKEN_SECRET
+    process.env.JWT_SECRET
   );
 
   res.header("auth-token", token).json({

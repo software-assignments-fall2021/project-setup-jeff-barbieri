@@ -6,6 +6,8 @@ const app = express()
 //-----------------------------------------------------
 // import routes
 const authRoutes = require("./routes/auth");
+const dashboardRoutes = require("./routes/dashboard");
+const verifyToken = require("./routes/validate-token");
 
 //DOTENV
 const dotenv = require("dotenv");
@@ -427,7 +429,12 @@ const users = require("./user_data.js")
 const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
 passport.use(jwtStrategy)
 
-// TODO
+
+
+
+
+
+// TODO <-- what is this TODO for? - Liv 
 /* -------------------------------------------------------------------*/
 // middlewares
 app.use(express.json()); // for body parser
@@ -441,6 +448,10 @@ console.log(mongoDB)
 app.use("/api/user", authRoutes)
 
 /* -------------------------------------------------------------------*/
+
+// this route is protected with token
+app.use("/api/dashboard", verifyToken, dashboardRoutes);
+
 
 // Listen on port 5000
 const lister = app.listen(5000, () => console.log("server is running..."));
