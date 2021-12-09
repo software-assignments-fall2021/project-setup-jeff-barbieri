@@ -20,14 +20,25 @@ router.post("/register", async (req, res) => {
   if (isEmailExist)
     return res.status(400).json({ error: "Email already exists" });
   
+
+
+/*
+passwordHash = bcrypt.hashSync(passwordString, bcrypt.genSaltSync(12))
+bcrypt.compareSync(passwordString, user.password)
+*/
   // hash the password
   const salt = await bcrypt.genSalt(10);
-  const password = await bcrypt.hash(req.body.password, salt);
+  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+  //ALTERNATIVE USING .hashSync and .genSaltSync
+  // const salt = await bcrypt.genSaltSync(12);
+  // const hashedPassword = await bcrypt.hashSync(req.body.password, salt);
+
   
   const user = new User({
     name: req.body.name,
     email: req.body.email,
-    password, // hashed password
+    password: hashedPassword, // hashed password
   });
   try {
     const savedUser = await user.save();
@@ -54,10 +65,13 @@ router.post("/login", async (req, res) => {
   
   // check for password correctness
   const validPassword = await bcrypt.compare(req.body.password, user.password);
+  //ALTERNATIVE using .compareSync
+  //const validPassword = await bcrypt.compare(req.body.password, user.password);
+  
   console.log("req.body PASSWORD? : ", req.body.password);
   console.log("user PASSWORD? : ", user.password);
   
-  if (req.body.password != user.password)
+  if (!validPassword)
     return res.status(400).json({ error: "Password is wrong" });
  
   // create token
