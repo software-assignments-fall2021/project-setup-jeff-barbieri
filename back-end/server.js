@@ -11,7 +11,6 @@ const authRoutes = require("./routes/auth");
 const dotenv = require("dotenv");
 dotenv.config();
 
-
 // import some useful middleware
 const multer = require("multer"); // middleware to handle HTTP POST requests with file uploads
 const axios = require("axios"); // middleware for making requests to APIs
@@ -178,130 +177,118 @@ app.get("/", (req, res) => {
   res.send("Hello world!")
 })
 
-//this is an abstraction of searching the database, in which you can pass in:
-//name = collection name
-//query = query value
-//cb = callback function
-function find (name, query, cb) {
-  mongoose.connection.db.collection(name, function (err, collection) {
-     collection.find(query).toArray(cb);
- });
-} //not in use yet, just thought it might be useful if we have trouble
-
 // -----------------------------------------------------------
 /* BRIAN: temporary LOCAL apparel data this should be replaced
 with database api */
+
 /* APPAREL DATA */
 // read apparel.json
+    /*
 let apparelString = fs.readFileSync('./data/apparel.json').toString();
 let apparel = JSON.parse(apparelString);
 
 // route for HTTP GET requests to /MyCloset
 app.get("/apparel", (req, res) => {
     res.json(apparel)
-})
+})- */
 
 //mongoose queries for each apparel type
 
 //get all tops
-/* const TopsInstance = mongoose.model('Tops', Tops);
-app.get('/apparel/apparel-data', cors(), function(req, res) {
-  //let query = req.params.query; req.params.tops/req.params.query.tops
+const TopsInstance = mongoose.model('Tops', Tops);
+app.get('/apparel/apparel-data', (req, res) => {
 
-  //console.log(query)
-
-  //return 
-  TopsInstance.find( category: { $eq: Tops } ).then( (result) => { 
-    res.json(result)
+  //return all tops
+  TopsInstance.find( {category : { $eq: Tops }} ).then( (tops) => { 
+    res.json(tops)
   } ).catch((err) => {res.send('Error')})
 
-})  */
+})  
 //get all bottoms
-/* const BottomsInstance = mongoose.model('Bottoms', Bottoms);
-app.get('/apparel/apparel-data', cors(), function(req, res) {
-  //let query = req.params.query; req.params.tops/req.params.query.tops
+const BottomsInstance = mongoose.model('Bottoms', Bottoms);
+app.get('/apparel/apparel-data', (req, res) => {
 
-  //console.log(query)
-
-  //return 
-  BottomsInstance.find( category: { $eq: Bottoms } ).then( (result) => { 
-    res.json(result)
+  //return all bottoms
+  BottomsInstance.find( {category: { $eq: Bottoms }} ).then( (bottoms) => { 
+    res.json(bottoms)
   } ).catch((err) => {res.send('Error')})
 
-})  */
+})  
 //get all footwear
-/* const FootwearInstance = mongoose.model('Footwear', Footwear);
-app.get('/apparel/apparel-data', cors(), function(req, res) {
-  //let query = req.params.query; req.params.tops/req.params.query.tops
+const FootwearInstance = mongoose.model('Footwear', Footwear);
+app.get('/apparel/apparel-data', (req, res) => {
 
-  //console.log(query)
-
-  //return 
-  FootwearInstance.find( category: { $eq: Footwear } ).then( (result) => { 
-    res.json(result)
+  //return all footwear
+  FootwearInstance.find( {category: { $eq: Footwear }} ).then( (footwear) => { 
+    res.json(footwear)
   } ).catch((err) => {res.send('Error')})
 
-})  */
+})  
 //get all accessories
-/* const AccessoriesInstance = mongoose.model('Accessories', Accessories);
-app.get('/apparel/apparel-data', cors(), function(req, res) {
-  //let query = req.params.query; req.params.tops/req.params.query.tops
+const AccessoriesInstance = mongoose.model('Accessories', Accessories);
+app.get('/apparel/apparel-data', (req, res) => {
 
-  //console.log(query)
-
-  //return 
-  AccessoriesInstance.find( category: { $eq: Accessories } ).then( (result) => { 
-    res.json(result)
+  //return all accessories
+  AccessoriesInstance.find( {category: { $eq: Accessories }} ).then( (accessories) => { 
+    res.json(accessories)
   } ).catch((err) => {res.send('Error')})
 
-})  */
+})  
 
 // -----------------------------------------------------------
 
 // -----------------------------------------------------------
 /* MY CLOSET */
 // read mycloset.json
+    /*
 let closetString = fs.readFileSync('./data/mycloset.json').toString();
 let closet = JSON.parse(closetString);
 
 // route for HTTP GET requests to /MyCloset
 app.get("/my-closet", (req, res) => {
     res.json(closet)
-})
+})  */
+
 
 //mongoose query for my closet
-/* const ClosetInstance = mongoose.model('MyCloset', Closet);
-app.get('/closet', cors(), function(req, res) {
-  //let query = req.params.query; req.params.tops/req.params.query.tops
-
-  //console.log(query)
+const ClosetInstance = mongoose.model('MyCloset', Closet);
+let closetString = ""
+app.get('/closet', (req, res) => {
 
   //for closet, only return items in user's closet
-  ClosetInstance.find({ inCloset: { $eq: true } }).then( (result) => { 
-    res.json(result)
+  ClosetInstance.find({ inCloset: { $eq: true } }).then( (closetItem) => { 
+    //res.json(closetItem)
+    closetString += closetItem;
   } ).catch((err) => {res.send('Error')})
 
-})  */
+  let closet = JSON.parse(closetString)
+  res.json(closet)
+}) 
 
 // -----------------------------------------------------------
 /*MY OUTFITS*/
 // read myoutfits.json
+    /*
 let outfitsString = fs.readFileSync('./data/myoutfits.json').toString();
 let outfits = JSON.parse(outfitsString);
 
 // route for HTTP GET requests to /MyOutfits
 app.get("/my-outfits", (req, res) => {
     res.send(outfits);
-})
+})  */
 
 //mongoose query for my outfits
-/* const OutfitsInstance = mongoose.model('MyOutfits', Outfits);
-app.get('/closet/outfits', cors(), function(req, res) {                      NOTE: WE NEED TO CREATE OUTFITS COLLECTION, OR MAKE PART OF CLOSET
-  //let query = req.params.query;
+const OutfitsInstance = mongoose.model('MyOutfits', Outfits);
+let outfitsString = ""
+app.get('/closet/outfits', (req, res) => {                      //NOTE: WE NEED TO CREATE OUTFITS COLLECTION, OR MAKE PART OF CLOSET
 
-  OutfitsInstance.find().then( (result) => { 
-    res.json(result)
+  OutfitsInstance.find().then( (outfit) => { 
+    //res.json(outfit)
+    outfitsString += outfit
   } ).catch((err) => {res.send('Error')})
+
+  let outfits = JSON.parse(outfitsString)
+  res.json(outfits)
 })  
 
 // -----------------------------------------------------------
@@ -316,7 +303,7 @@ app.get("/try-on", (req, res) => {
     res.send(tryon);
 })
 
-//mongoose query for try on
+//mongoose query for try on                                                 //WILL ADD THIS IF WE DECIDE TO SEPERATE IT FROM APPAREL
 /* const TryOnInstance = mongoose.model('TryOn', TryOn);
 app.get('/apparel', cors(), function(req, res) {
   //let query = req.params.query;
@@ -330,23 +317,29 @@ app.get('/apparel', cors(), function(req, res) {
 /*MY MANNEQUIN*/
 
 // read mymannequin.json
+    /*
 let mannequinString = fs.readFileSync('./data/mymannequin.json').toString();
 let mannequin = JSON.parse(mannequinString);
 
 // route for HTTP GET requests to /MyMannequin
 app.get("/my-mannequin", (req, res) => {
     res.send(mannequin);
-})
+})  */
 
 //mongoose query for my mannequin
-/* const MannequinInstance = mongoose.model('MyMannequin', Mannequin);
-app.get('/mannequin', cors(), function(req, res) {                        NOTE: WE NEED TO CREATE MANNEQUIN COLLECTION
+const MannequinInstance = mongoose.model('MyMannequin', Mannequin);
+let mannequinString = ""
+app.get('/mannequin', (req, res) => {                        //NOTE: WE NEED TO CREATE MANNEQUIN COLLECTION
   //let query = req.params.query;
 
-  MannequinInstance.find().then( (result) => { 
-    res.json(result)
+  MannequinInstance.find().then( (thisMannequin) => { 
+    //res.json(thisMannequin)
+    mannequinString += thisMannequin
   } ).catch((err) => {res.send('Error')})
-})  */
+
+  let mannequin = JSON.parse(mannequinString)
+  res.json(mannequin)
+}) 
 
 /*AUTHENTICATION PAGE ROUTING*/
 
@@ -409,6 +402,16 @@ app.post('/closet', (req, res) => {                    //IF WE COMBINE OUTFITS A
   })
 })
 
+//this is an abstraction of searching the database, in which you can pass in:
+//name = collection name
+//query = query value
+//cb = callback function
+function find (name, query, cb) {
+  mongoose.connection.db.collection(name, function (err, collection) {
+     collection.find(query).toArray(cb);
+ });
+} //not in use yet, just thought it might be useful if we have trouble
+
 /*      JSON WEB TOKOENS    */
 
 // the following are used for authentication with JSON Web Tokens
@@ -424,11 +427,6 @@ const users = require("./user_data.js")
 const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
 passport.use(jwtStrategy)
 
-
-
-
-
-
 // TODO
 /* -------------------------------------------------------------------*/
 // middlewares
@@ -443,9 +441,6 @@ console.log(mongoDB)
 app.use("/api/user", authRoutes)
 
 /* -------------------------------------------------------------------*/
-
-
-
 
 // Listen on port 5000
 const lister = app.listen(5000, () => console.log("server is running..."));
