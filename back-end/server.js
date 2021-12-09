@@ -154,7 +154,7 @@ const Outfits = new Schema({
 //,{ collection : 'apparel' }
 
 // environment variables for mongodb
-const username = process.env.USERNAME.toLowerCase();
+const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
 
 //set up mongoose connection
