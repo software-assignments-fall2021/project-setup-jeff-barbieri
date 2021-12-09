@@ -37,18 +37,20 @@ const Schema = mongoose.Schema;
 
 //schema for clothing values
 const Clothing = new Schema({
+  category: String,
   name: String, //name of clothing article
   type: String, //clothing type, maybe replace with int later?
   size: String, //decided not to enumerate size
   source: String, //image URL
   alt: String //alt text for image
-},
-{ collection : 'apparel' })
+}
+) //,{ collection : 'apparel' }
 
 //schema for each category of clothing
 
 //schema for clothing tops
 const Tops = new Schema({
+  category: String,
   name: String,
   type: String,
   size: String,
@@ -57,11 +59,12 @@ const Tops = new Schema({
   width: Number,
   sleeve: Number,
   source: String
-},
-{ collection : 'apparel' })
+})
+ //,{ collection : 'apparel' }
 
 //schema for clothing bottoms
 const Bottoms = new Schema({
+  category: String,
   name: String,
   type: String,
   size: String,
@@ -70,11 +73,12 @@ const Bottoms = new Schema({
   rise: Number,
   inseam: Number,
   source: String
-},
-{ collection : 'apparel' })
+})
+//,{ collection : 'apparel' }
 
 //schema for footwear
 const Footwear = new Schema({
+  category: String,
   name: String,
   type: String,
   size: Number,
@@ -82,12 +86,13 @@ const Footwear = new Schema({
   insole: Number,
   width: Number,
   source: String
-},
-{ collection : 'apparel' })
+})
+//,{ collection : 'apparel' }
 
 //schema for accessories
 //NOTE: this is the most arbitrary category, so this may be revised
 const Accessories = new Schema({
+  category: String,
   name: String,
   type: String,
   size: String,
@@ -95,8 +100,8 @@ const Accessories = new Schema({
   length: Number,
   width: Number,
   source: String
-},
-{ collection : 'apparel' })
+})
+//,{ collection : 'apparel' }
 
 //schema for closet values
 const Closet = new Schema({
@@ -105,8 +110,8 @@ const Closet = new Schema({
   bottoms: [],
   footwear: [],
   accessories: []
-},
-{ collection : 'apparel' })
+})
+//,{ collection : 'apparel' }
 
 //schema for mannequin values
 const Mannequin = new Schema({
@@ -118,16 +123,16 @@ const Mannequin = new Schema({
   waist: Number,
   weight: Number,
   body: Number
-},
-{ collection : 'apparel' })
+})
+//,{ collection : 'apparel' }
 
 //schema for user authentication values
 const Login = new Schema({
   username: String,
   // email: String, not sure if our login includes email address
   password: String //this will have to be encrypted in our .env file
-},
-{ collection : 'apparel' })
+})
+//,{ collection : 'apparel' }
 
 //schema for try on values
 const TryOn = new Schema({
@@ -137,20 +142,19 @@ const TryOn = new Schema({
   source: String, //image URL
   alt: String, //alt text for image
   inCloset: Boolean //store if article is in closet
-},
-{ collection : 'apparel' })
+})
+//,{ collection : 'apparel' }
 
 //schema for outfit values
 const Outfits = new Schema({
   //outfits will be array of clothing items (array of arrays)
   outfits: [[]]
-},
-{ collection : 'apparel' })
+})
+//,{ collection : 'apparel' }
 
 // environment variables for mongodb
-const username = process.env.USERNAME;
+const username = process.env.USERNAME.toLowerCase();
 const password = process.env.PASSWORD;
-
 
 //set up mongoose connection
 const mongoDB = `mongodb+srv://${username}:${password}@cluster0.4ofnm.mongodb.net/user?retryWrites=true&w=majority`;
@@ -197,8 +201,60 @@ app.get("/apparel", (req, res) => {
     res.json(apparel)
 })
 
+//mongoose queries for each apparel type
 
+//get all tops
+/* const TopsInstance = mongoose.model('Tops', Tops);
+app.get('/apparel/apparel-data', cors(), function(req, res) {
+  //let query = req.params.query; req.params.tops/req.params.query.tops
 
+  //console.log(query)
+
+  //return 
+  TopsInstance.find( category: { $eq: Tops } ).then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
+
+})  */
+//get all bottoms
+/* const BottomsInstance = mongoose.model('Bottoms', Bottoms);
+app.get('/apparel/apparel-data', cors(), function(req, res) {
+  //let query = req.params.query; req.params.tops/req.params.query.tops
+
+  //console.log(query)
+
+  //return 
+  BottomsInstance.find( category: { $eq: Bottoms } ).then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
+
+})  */
+//get all footwear
+/* const FootwearInstance = mongoose.model('Footwear', Footwear);
+app.get('/apparel/apparel-data', cors(), function(req, res) {
+  //let query = req.params.query; req.params.tops/req.params.query.tops
+
+  //console.log(query)
+
+  //return 
+  FootwearInstance.find( category: { $eq: Footwear } ).then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
+
+})  */
+//get all accessories
+/* const AccessoriesInstance = mongoose.model('Accessories', Accessories);
+app.get('/apparel/apparel-data', cors(), function(req, res) {
+  //let query = req.params.query; req.params.tops/req.params.query.tops
+
+  //console.log(query)
+
+  //return 
+  AccessoriesInstance.find( category: { $eq: Accessories } ).then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
+
+})  */
 
 // -----------------------------------------------------------
 
@@ -215,25 +271,16 @@ app.get("/my-closet", (req, res) => {
 
 //mongoose query for my closet
 /* const ClosetInstance = mongoose.model('MyCloset', Closet);
-app.get('/find/:my-closet', cors(), function(req, res) {
-  let query = req.params.query;
+app.get('/closet', cors(), function(req, res) {
+  //let query = req.params.query; req.params.tops/req.params.query.tops
 
-  ClosetInstance.find({
-      'tops': query,
-      'bottoms': query,
-      'footwear': query,
-      'accessories': query
-    }, 
-    function(err, result) {
-      if (err) throw err;
-      if (result) {
-          res.json(result)
-      } else {
-          res.send(JSON.stringify({
-              error : 'Error'
-          }))
-      }
-  })
+  //console.log(query)
+
+  //for closet, only return items in user's closet
+  ClosetInstance.find({ inCloset: { $eq: true } }).then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
+
 })  */
 
 // -----------------------------------------------------------
@@ -249,23 +296,13 @@ app.get("/my-outfits", (req, res) => {
 
 //mongoose query for my outfits
 /* const OutfitsInstance = mongoose.model('MyOutfits', Outfits);
-app.get('/find/:my-outfits', cors(), function(req, res) {
-  let query = req.params.query;
+app.get('/closet/outfits', cors(), function(req, res) {                      NOTE: WE NEED TO CREATE OUTFITS COLLECTION, OR MAKE PART OF CLOSET
+  //let query = req.params.query;
 
-  OutfitsInstance.find({
-      'outfits': query,
-    }, 
-    function(err, result) {
-      if (err) throw err;
-      if (result) {
-          res.json(result)
-      } else {
-          res.send(JSON.stringify({
-              error : 'Error'
-          }))
-      }
-  })
-})  */
+  OutfitsInstance.find().then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
+})  
 
 // -----------------------------------------------------------
 /*TRY ON*/
@@ -281,27 +318,12 @@ app.get("/try-on", (req, res) => {
 
 //mongoose query for try on
 /* const TryOnInstance = mongoose.model('TryOn', TryOn);
-app.get('/find/:try-on', cors(), function(req, res) {
-  let query = req.params.query;
+app.get('/apparel', cors(), function(req, res) {
+  //let query = req.params.query;
 
-  TryOnInstance.find({
-      'name': query, 
-      'type': query, 
-      'size': query,
-      'source': query, 
-      'alt': query, 
-      'inCloset': query 
-    }, 
-    function(err, result) {
-      if (err) throw err;
-      if (result) {
-          res.json(result)
-      } else {
-          res.send(JSON.stringify({
-              error : 'Error'
-          }))
-      }
-  })
+  TryOnInstance.find().then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
 })  */
 
 // -----------------------------------------------------------
@@ -318,29 +340,12 @@ app.get("/my-mannequin", (req, res) => {
 
 //mongoose query for my mannequin
 /* const MannequinInstance = mongoose.model('MyMannequin', Mannequin);
-app.get('/find/:my-mannequin', cors(), function(req, res) {
-  let query = req.params.query;
+app.get('/mannequin', cors(), function(req, res) {                        NOTE: WE NEED TO CREATE MANNEQUIN COLLECTION
+  //let query = req.params.query;
 
-  MannequinInstance.find({
-      'sex': query, 
-      'height': query,
-      'shirt': query,
-      'pants': query,
-      'jacket': query,
-      'waist': query,
-      'weight': query,
-      'body': query
-    }, 
-    function(err, result) {
-      if (err) throw err;
-      if (result) {
-          res.json(result)
-      } else {
-          res.send(JSON.stringify({
-              error : 'Error'
-          }))
-      }
-  })
+  MannequinInstance.find().then( (result) => { 
+    res.json(result)
+  } ).catch((err) => {res.send('Error')})
 })  */
 
 /*AUTHENTICATION PAGE ROUTING*/
@@ -374,7 +379,35 @@ const storage = multer.diskStorage({
   })
   const upload = multer({ storage: storage })
 
+/* POST REQUESTS */
 
+//create user mannequin
+app.post('/mannequin', (req, res) => {
+  let mannequinData = new Mannequin(req.body);
+  mannequinData.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+  })
+})
+
+app.post('/closet/outfits', (req, res) => {                    //IF WE COMBINE OUTFITS AND CLOSET, THESE NEED TO LINK TO SAME DIRECTORY
+  let outfitData = new Outfits(req.body);
+  outfitData.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+  })
+})
+
+app.post('/closet', (req, res) => {                    //IF WE COMBINE OUTFITS AND CLOSET, THESE NEED TO LINK TO SAME DIRECTORY
+  let closetData = new Closet(req.body);
+  closetData.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+  })
+})
 
 /*      JSON WEB TOKOENS    */
 
