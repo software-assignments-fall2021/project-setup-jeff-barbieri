@@ -161,6 +161,25 @@ svg {
 	/* display:none; */
 	display: block;
 }
+.apparel{
+	/* display:none; */
+	display: block;
+}
+.apparel .clothing {
+	position: relative;
+	width: 295px;
+	height: 480px;
+    
+	/* top: 150px;  */
+	
+	margin-left: 47px;
+	margin-bottom: 25px;
+	
+	/*background-color: #f6f6f6;*/
+	background-color: #f6f6f6;
+
+	border-radius: 10px;
+}
 .clothing {
 	position: relative;
 	width: 295px;
