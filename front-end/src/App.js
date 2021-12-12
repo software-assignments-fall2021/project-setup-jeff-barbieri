@@ -31,7 +31,10 @@ function App() {
           <Route path='/TryOn'>
             <TryOn/>
           </Route>
-
+          
+          <Route path='/Login'>
+            <Login/>
+          </Route>
           {/* <Route path = '/Authentication'>
           <Authentication/>
         </Route> */}
@@ -39,7 +42,7 @@ function App() {
 
       </Router>
       {/* <Authentication/> */}
-      <Login/>
+      
 
       {/* <MyCloset/> */}
       {/* <MyOutfits/> */}

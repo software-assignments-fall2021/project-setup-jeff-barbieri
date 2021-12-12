@@ -30,4 +30,10 @@ export const SidebarData = [
         icon: <GiIcons.GiClothes/>,
         cName: 'nav-text',
     },
+    {
+        title: 'Login',
+        path: '/Login',
+        icon: <GiIcons.GiClothes/>,
+        cName: 'nav-text',
+    }
 ]
