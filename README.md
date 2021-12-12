@@ -1,4 +1,6 @@
 # Virtual Apparel Try-On 
+## Deployment URL
+http://137.184.209.143:3000
 
 ## Product Description and Product Vision Statement
 Virtual Apparel Try-On is a web-based application for online shoppers to store their bodily measurements and render them in real-time onto a 3D mannequin. The user can then try on articles of clothing and see how they would fit a body with their given dimensions. The user will be able to try on multiple articles of clothing concurrently and assemble outfits, which they can then add to their cart to purchase. The application will also store the user’s dimensions in their account, as well as their ‘wardrobe’ of items purchased through the app.
