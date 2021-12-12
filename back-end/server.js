@@ -346,9 +346,9 @@ app.get('/mannequin', (req, res) => {                        //NOTE: WE NEED TO 
 /*AUTHENTICATION PAGE ROUTING*/
 
 // route for HTTP GET requests to /Login
-app.get("/login", (req, res) => {
+app.get("/api/user/login", (req, res) => {
     // send the response as JSON to the client
-    res.sendFile("/login.html")
+    res.send("/login.html")
 })
 
 // route for HTTP GET requests to /Register
