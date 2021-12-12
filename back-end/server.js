@@ -452,7 +452,8 @@ app.use("/api/user", authRoutes)
 // this route is protected with token
 app.use("/MyCloset", verifyToken, dashboardRoutes);
 
-
+// create a static route that serves the front-end build code
+app.use("/client", express.static("client"))
 
 // Listen on port 5000
 const lister = app.listen(5000, () => console.log("server is running..."));
