@@ -8,6 +8,12 @@
     /* background-color: red; */
 }
 
+button {
+    background-color: white;
+    /* border-radius: 50px; */
+    width: 100px;
+    border: 1px solid #8ac4ff;
+}
 
 
 h1 {

@@ -35,5 +35,11 @@ export const SidebarData = [
         path: '/Login',
         icon: <GiIcons.GiClothes/>,
         cName: 'nav-text',
+    },
+    {
+        title: 'Register',
+        path: '/Register',
+        icon: <GiIcons.GiClothes/>,
+        cName: 'nav-text',
     }
 ]

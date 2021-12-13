@@ -128,11 +128,11 @@ const Mannequin = new Schema({
 //,{ collection : 'apparel' }
 
 //schema for user authentication values
-const Login = new Schema({
-  username: String,
-  // email: String, not sure if our login includes email address
-  password: String //this will have to be encrypted in our .env file
-})
+// const Login = new Schema({
+//   username: String,
+//   // email: String, not sure if our login includes email address
+//   password: String //this will have to be encrypted in our .env file
+// })
 //,{ collection : 'apparel' }
 
 //schema for try on values
@@ -348,7 +348,7 @@ app.get('/mannequin', (req, res) => {                        //NOTE: WE NEED TO 
 // route for HTTP GET requests to /Login
 app.get("/api/user/login", (req, res) => {
     // send the response as JSON to the client
-    res.send("/login.html")
+    res.send(req.body)
 })
 
 // route for HTTP GET requests to /Register

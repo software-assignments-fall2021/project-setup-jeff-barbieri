@@ -50,7 +50,7 @@ bcrypt.compareSync(passwordString, user.password)
 
 
 // login route
-router.post("/login", async (req, res) => {
+router.post("/api/user/login", async (req, res) => {
   
   // validate the user
   const { error } = loginValidation(req.body);
