@@ -6,6 +6,8 @@ import Authentication from './Authentication';
 import Login from './Login';
 import NavMenu from './components/NavMenu';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'; 
+import Register from './Register'
+
 
 function App() {
   
@@ -35,6 +37,9 @@ function App() {
           <Route path='/Login'>
             <Login/>
           </Route>
+          <Route path='/Register'>
+            <Register/>
+          </Route>
           {/* <Route path = '/Authentication'>
           <Authentication/>
         </Route> */}
@@ -42,7 +47,7 @@ function App() {
 
       </Router>
       {/* <Authentication/> */}
-      
+
 
       {/* <MyCloset/> */}
       {/* <MyOutfits/> */}

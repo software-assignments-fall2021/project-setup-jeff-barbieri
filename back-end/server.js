@@ -128,11 +128,11 @@ const Mannequin = new Schema({
 //,{ collection : 'apparel' }
 
 //schema for user authentication values
-const Login = new Schema({
-  username: String,
-  // email: String, not sure if our login includes email address
-  password: String //this will have to be encrypted in our .env file
-})
+// const Login = new Schema({
+//   username: String,
+//   // email: String, not sure if our login includes email address
+//   password: String //this will have to be encrypted in our .env file
+// })
 //,{ collection : 'apparel' }
 
 //schema for try on values
@@ -346,9 +346,9 @@ app.get("/my-mannequin", (req, res) => {
 /*AUTHENTICATION PAGE ROUTING*/
 
 // route for HTTP GET requests to /Login
-app.get("/login", (req, res) => {
+app.get("/api/user/login", (req, res) => {
     // send the response as JSON to the client
-    res.sendFile("/login.html")
+    res.send(req.body)
 })
 
 // route for HTTP GET requests to /Register
@@ -452,7 +452,8 @@ app.use("/api/user", authRoutes)
 // this route is protected with token
 app.use("/MyCloset", verifyToken, dashboardRoutes);
 
-
+// create a static route that serves the front-end build code
+app.use("/client", express.static("client"))
 
 // Listen on port 5000
 const lister = app.listen(5000, () => console.log("server is running..."));

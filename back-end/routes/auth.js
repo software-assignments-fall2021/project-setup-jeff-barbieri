@@ -27,8 +27,8 @@ passwordHash = bcrypt.hashSync(passwordString, bcrypt.genSaltSync(12))
 bcrypt.compareSync(passwordString, user.password)
 */
   // hash the password
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  const salt = await bcrypt.genSaltSync(10);
+  const hashedPassword = await bcrypt.hashSync(req.body.password, salt);
 
   //ALTERNATIVE USING .hashSync and .genSaltSync
   // const salt = await bcrypt.genSaltSync(12);
@@ -50,7 +50,7 @@ bcrypt.compareSync(passwordString, user.password)
 
 
 // login route
-router.post("/login", async (req, res) => {
+router.post("/api/user/login", async (req, res) => {
   
   // validate the user
   const { error } = loginValidation(req.body);
@@ -63,15 +63,21 @@ router.post("/login", async (req, res) => {
   // throw error when email is wrong
   if (!user) return res.status(400).json({ error: "Email is wrong" });
   
+  // hash the password(THE FOLLOWING IS WHAT JIN ADVISED TO PUT)
+  const salt = await bcrypt.genSaltSync(10);                             
+  const hashedPassword = await bcrypt.hashSync(req.body.password, salt);  
+
   // check for password correctness
-  const validPassword = await bcrypt.compare(req.body.password, user.password);
+  const validPassword = await bcrypt.compareSync(hashedPassword, user.password);   
+
   //ALTERNATIVE using .compareSync
   //const validPassword = await bcrypt.compare(req.body.password, user.password);
-  
+
+  console.log("HASHED PASSWORD: ", hashedPassword)
   console.log("req.body PASSWORD? : ", req.body.password);
   console.log("user PASSWORD? : ", user.password);
   
-  if (!validPassword)
+  if (req.body.password != user.password)
     return res.status(400).json({ error: "Password is wrong" });
  
   // create token
