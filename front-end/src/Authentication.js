@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Authentication.css';
 import { Link } from 'react-router-dom';
-import {BrowserRouter as Router, Route, Redirect, Routes , useHistory} from 'react-router-dom'; 
+import {BrowserRouter as Router, Route, Redirect, Switch , useHistory} from 'react-router-dom'; 
 import MyCloset from './MyCloset';
 
 
@@ -26,12 +26,12 @@ const Authentication = () => {
                 {/* The following is supposed to continue to /MyCloset onClick but I can't figure it out now
                 Need to support onClick */}
                 <Router>
-                    <Routes>
+                    <Switch>
                     <Route path='/MyCloset'>
                         <MyCloset/>
                     </Route>
                     {/* <Link to="/MyCloset" >Sidkfsjp</Link> */}
-                    </Routes>
+                    </Switch>
                 </Router>
 
    

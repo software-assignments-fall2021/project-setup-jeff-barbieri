@@ -5,7 +5,7 @@ import TryOn from './TryOn'
 import Authentication from './Authentication';
 import Login from './Login';
 import NavMenu from './components/NavMenu';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'; 
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'; 
 
 function App() {
   
@@ -16,7 +16,7 @@ function App() {
       <NavMenu/>
  
         
-        <Routes>
+        <Switch>
 
           <Route path='/MyCloset'>
             <MyCloset/>
@@ -38,7 +38,7 @@ function App() {
           {/* <Route path = '/Authentication'>
           <Authentication/>
         </Route> */}
-        </Routes>
+        </Switch>
 
       </Router>
       {/* <Authentication/> */}
