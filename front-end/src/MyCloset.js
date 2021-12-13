@@ -1,5 +1,6 @@
 import React from 'react';
 import './MyCloset.css';
+import mannequin from './images/mannequin.png';
 
 const Clothing = (props) => {
 	return(
@@ -159,7 +160,7 @@ const MyCloset = () => {
             </div>
 
             {/* TODO mannequin*/}
-            <img id="mannequin" src="https://picsum.photos/220/220" alt="Mannequin"></img>
+            <img id="mannequin" src={mannequin} alt="Mannequin"></img>
 
             {/* TODO Add to Outfits button */}
             <button id="outfitButton" type="button">Add to Outfits</button>

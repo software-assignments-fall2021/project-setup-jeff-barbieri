@@ -10,7 +10,7 @@
   "length": 26,
   "width": 19.667,
   "sleeve": 17,
-  "src": "/static/images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.png"
+  "src": "UCrewNeckShortSleeveTShirt"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c1777489"
@@ -23,7 +23,7 @@
   "length": 27.167,
   "width": 20.857,
   "sleeve": 17.714,
-  "src": "/static/images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.png"
+  "src": "UCrewNeckShortSleeveTShirt"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c177748a"
@@ -36,7 +36,7 @@
   "length": 25.6,
   "width": 21.5,
   "sleeve": 33.5,
-  "src": "/static/images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE.png"
+  "src": "USweatLongSleevePulloverHoodie"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c177748b"
@@ -49,7 +49,7 @@
   "length": 26.375,
   "width": 22.667,
   "sleeve": 34.444,
-  "src": "/static/images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE.png"
+  "src": "USweatLongSleevePulloverHoodie"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c177748c"
@@ -62,7 +62,7 @@
   "waist": 31.111,
   "rise": 13,
   "inseam": 30,
-  "src": "/static/images/U-WIDE-FIT-WORK-PANTS.png"
+  "src": "UWideFitWorkPants"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c177748d"
@@ -75,7 +75,7 @@
   "waist": 33.5,
   "rise": 13.4,
   "inseam": 30.333,
-  "src": "/static/images/U-WIDE-FIT-WORK-PANTS.png"
+  "src": "UWideFitWorkPants"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c177748e"
@@ -88,7 +88,7 @@
   "waist": 28.333,
   "rise": 10.833,
   "inseam": 8.667,
-  "src": "/static/images/DRY-STRETCH-EASY-SHORTS.png"
+  "src": "DryStretchEasyShorts"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c177748f"
@@ -101,7 +101,7 @@
   "waist": 30.714,
   "rise": 11,
   "inseam": 9,
-  "src": "/static/images/DRY-STRETCH-EASY-SHORTS.png"
+  "src": "DryStretchEasyShorts"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c1777490"
@@ -113,7 +113,7 @@
   "color": "White",
   "insole": 11.333,
   "width": 3.667,
-  "src": "/static/images/KNITTED-LACE-UP-SNEAKERS.png"
+  "src": "KnittedLaceUpSneakers"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c1777491"
@@ -125,7 +125,7 @@
   "color": "White",
   "insole": 11.75,
   "width": 3.75,
-  "src": "/static/images/KNITTED-LACE-UP-SNEAKERS.png"
+  "src": "KnittedLaceUpSneakers"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c1777492"
@@ -137,7 +137,7 @@
   "color": "Black",
   "insole": 11.333,
   "width": 3.667,
-  "src": "/static/images/CHUKKA-BOOTS.png"
+  "src": "ChukkaBoots"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c1777493"
@@ -149,7 +149,7 @@
   "color": "White",
   "insole": 11.75,
   "width": 3.75,
-  "src": "/static/images/CHUKKA-BOOTS.png"
+  "src": "ChukkaBoots"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c1777494"
@@ -161,7 +161,7 @@
   "color": "Light Gray",
   "length": -1,
   "width": -1,
-  "src": "/static/images/ROGER-FEDERER-CAP.png"
+  "src": "RogerFedererCap"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c1777495"
@@ -173,7 +173,7 @@
   "color": "Dark Brown",
   "length": 40.167,
   "width": 1.5,
-  "src": "/static/images/ITALIAN-LEATHER-VINTAGE-BELT.png"
+  "src": "ItalianLeatherVintageBelt"
 },{
   "_id": {
     "$oid": "61abe18fa6b2c220c1777496"
@@ -185,5 +185,5 @@
   "color": "Dark Brown",
   "length": 43.714,
   "width": 1.5,
-  "src": "/static/images/ITALIAN-LEATHER-VINTAGE-BELT.png"
+  "src": "ItalianLeatherVintageBelt"
 }]

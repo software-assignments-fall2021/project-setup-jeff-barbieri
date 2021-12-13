@@ -1,6 +1,13 @@
 import React from 'react';
 import Select from 'react-select';
 import './TryOn.css';
+import UCrewNeckShortSleeveTShirt from "./images/U-CREW-NECK-SHORT-SLEEVE-T-SHIRT.PNG";
+import USweatLongSleevePulloverHoodie from "./images/U-SWEAT-LONG-SLEEVE-PULLOVER-HOODIE.PNG";
+import UWideFitWorkPants from "./images/U-WIDE-FIT-WORK-PANTS.PNG";
+import DryStretchEasyShorts from "./images/DRY-STRETCH-EASY-SHORTS.png";
+import KnittedLaceUpSneakers from "./images/KNITTED-LACE-UP-SNEAKERS.PNG"
+import RogerFedererCap from "./images/ROGER-FEDERER-CAP.PNG";
+import ItalianLeatherVintageBelt from "./images/ITALIAN-LEATHER-VINTAGE-BELT.PNG";
 
 const Clothing = (props) => {
 	return(
@@ -120,7 +127,7 @@ const TryOn = () => {
                         heading = {val.name.replace('-', ' ')}
                         alt = {val.name}
                         // TODO fix this image not loading
-                        src = {"../../database" + val.src}
+                        src = {val.src}
                     />
                 ))}
             </React.Fragment>

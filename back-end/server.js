@@ -185,14 +185,14 @@ with database api */
 
 /* APPAREL DATA */
 // read apparel.json
-    /*
+
 let apparelString = fs.readFileSync('./data/apparel.json').toString();
 let apparel = JSON.parse(apparelString);
 
 // route for HTTP GET requests to /MyCloset
 app.get("/apparel", (req, res) => {
     res.json(apparel)
-})- */
+})
 
 //mongoose queries for each apparel type
 
@@ -242,56 +242,56 @@ app.get('/apparel/apparel-data', (req, res) => {
 // -----------------------------------------------------------
 /* MY CLOSET */
 // read mycloset.json
-    /*
+
 let closetString = fs.readFileSync('./data/mycloset.json').toString();
 let closet = JSON.parse(closetString);
 
 // route for HTTP GET requests to /MyCloset
 app.get("/my-closet", (req, res) => {
     res.json(closet)
-})  */
+});
 
 
-//mongoose query for my closet
-const ClosetInstance = mongoose.model('MyCloset', Closet);
-let closetString = ""
-app.get('/closet', (req, res) => {
+// //mongoose query for my closet
+// const ClosetInstance = mongoose.model('MyCloset', Closet);
+// let closetString = ""
+// app.get('/closet', (req, res) => {
 
-  //for closet, only return items in user's closet
-  ClosetInstance.find({ inCloset: { $eq: true } }).then( (closetItem) => { 
-    //res.json(closetItem)
-    closetString += closetItem;
-  } ).catch((err) => {res.send('Error')})
+//   //for closet, only return items in user's closet
+//   ClosetInstance.find({ inCloset: { $eq: true } }).then( (closetItem) => { 
+//     //res.json(closetItem)
+//     closetString += closetItem;
+//   } ).catch((err) => {res.send('Error')})
 
-  let closet = JSON.parse(closetString)
-  res.json(closet)
-}) 
+//   let closet = JSON.parse(closetString)
+//   res.json(closet)
+// }) 
 
 // -----------------------------------------------------------
 /*MY OUTFITS*/
 // read myoutfits.json
-    /*
+
 let outfitsString = fs.readFileSync('./data/myoutfits.json').toString();
 let outfits = JSON.parse(outfitsString);
 
 // route for HTTP GET requests to /MyOutfits
 app.get("/my-outfits", (req, res) => {
     res.send(outfits);
-})  */
+})
 
 //mongoose query for my outfits
-const OutfitsInstance = mongoose.model('MyOutfits', Outfits);
-let outfitsString = ""
-app.get('/closet/outfits', (req, res) => {                      //NOTE: WE NEED TO CREATE OUTFITS COLLECTION, OR MAKE PART OF CLOSET
+// const OutfitsInstance = mongoose.model('MyOutfits', Outfits);
+// let outfitsString = ""
+// app.get('/closet/outfits', (req, res) => {                      //NOTE: WE NEED TO CREATE OUTFITS COLLECTION, OR MAKE PART OF CLOSET
 
-  OutfitsInstance.find().then( (outfit) => { 
-    //res.json(outfit)
-    outfitsString += outfit
-  } ).catch((err) => {res.send('Error')})
+//   OutfitsInstance.find().then( (outfit) => { 
+//     //res.json(outfit)
+//     outfitsString += outfit
+//   } ).catch((err) => {res.send('Error')})
 
-  let outfits = JSON.parse(outfitsString)
-  res.json(outfits)
-})  
+//   let outfits = JSON.parse(outfitsString)
+//   res.json(outfits)
+// })  
 
 // -----------------------------------------------------------
 /*TRY ON*/
@@ -306,42 +306,42 @@ app.get("/try-on", (req, res) => {
 })
 
 //mongoose query for try on                                                 //WILL ADD THIS IF WE DECIDE TO SEPERATE IT FROM APPAREL
-/* const TryOnInstance = mongoose.model('TryOn', TryOn);
-app.get('/apparel', cors(), function(req, res) {
-  //let query = req.params.query;
+// const TryOnInstance = mongoose.model('TryOn', TryOn);
+// app.get('/apparel', cors(), function(req, res) {
+//   //let query = req.params.query;
 
-  TryOnInstance.find().then( (result) => { 
-    res.json(result)
-  } ).catch((err) => {res.send('Error')})
-})  */
+//   TryOnInstance.find().then( (result) => { 
+//     res.json(result)
+//   } ).catch((err) => {res.send('Error')})
+// })
 
 // -----------------------------------------------------------
 /*MY MANNEQUIN*/
 
 // read mymannequin.json
-    /*
+
 let mannequinString = fs.readFileSync('./data/mymannequin.json').toString();
 let mannequin = JSON.parse(mannequinString);
 
 // route for HTTP GET requests to /MyMannequin
 app.get("/my-mannequin", (req, res) => {
     res.send(mannequin);
-})  */
+})
 
 //mongoose query for my mannequin
-const MannequinInstance = mongoose.model('MyMannequin', Mannequin);
-let mannequinString = ""
-app.get('/mannequin', (req, res) => {                        //NOTE: WE NEED TO CREATE MANNEQUIN COLLECTION
-  //let query = req.params.query;
+// const MannequinInstance = mongoose.model('MyMannequin', Mannequin);
+// let mannequinString = ""
+// app.get('/mannequin', (req, res) => {                        //NOTE: WE NEED TO CREATE MANNEQUIN COLLECTION
+//   //let query = req.params.query;
 
-  MannequinInstance.find().then( (thisMannequin) => { 
-    //res.json(thisMannequin)
-    mannequinString += thisMannequin
-  } ).catch((err) => {res.send('Error')})
+//   MannequinInstance.find().then( (thisMannequin) => { 
+//     //res.json(thisMannequin)
+//     mannequinString += thisMannequin
+//   } ).catch((err) => {res.send('Error')})
 
-  let mannequin = JSON.parse(mannequinString)
-  res.json(mannequin)
-}) 
+//   let mannequin = JSON.parse(mannequinString)
+//   res.json(mannequin)
+// }) 
 
 /*AUTHENTICATION PAGE ROUTING*/
 
