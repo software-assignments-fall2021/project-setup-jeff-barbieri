@@ -32,7 +32,7 @@ function App() {
             <TryOn/>
           </Route>
           
-          <Route path='/Login'>
+          <Route path='/api/user/login'>
             <Login/>
           </Route>
           {/* <Route path = '/Authentication'>
