@@ -1,5 +1,5 @@
 {
-    "recent": [
+    "recents":[
         {
             "heading": "Flower Shirt",
             "alt": "Flower shirt",
@@ -59,6 +59,7 @@
             "alt": "Rolex",
             "src": "/static/images/clothing.jpg",
             "details": "Rolex Watch, VVS, size large."
-        }]
-    
+        }
+    ]
+
 }

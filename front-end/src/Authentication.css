@@ -16,15 +16,18 @@ h1 {
 
 /*hover functionality for button*/
 input.main{
-    background-color: white;
+    position: relative;
+    background-color: red;
     border-radius: 50px;
     border: 1px solid #8ac4ff;
     width: 200px;
     padding-block: 8px;
-    color:#8ac4ff
+    color:#8ac4ff;
+  
 }
 
 input.main:hover{
+    position: relative;
     background-color: #8ac4ff;
     border-radius: 50px;
     border: 1px solid white;
@@ -34,13 +37,19 @@ input.main:hover{
 }
 
 input#continue{
-    padding-top: 15px;
+    position: relative;
+    text-align: center;
+    padding-top: 50px;
     border: none;
     background-color: white;
+    width: 250px;
 }
 input#continue:hover{
-    padding-top: 15px;
+    position: relative;
+    text-align: center;
+    padding-top: 50px;
     border: none;
     background-color:white;
+    width: 250px;
     font-weight: bold;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './MyCloset.css';
+import mannequin from './images/mannequin.png';
 
 const Clothing = (props) => {
 	return(
@@ -12,6 +13,117 @@ const Clothing = (props) => {
 }
 
 const MyCloset = () => {
+
+    // displays Tops
+    function Tops() {
+        const [data, setData] = React.useState([]);
+        React.useEffect(() => {
+            fetch("/my-closet")
+                .then((res) => res.json())
+                // .then(setData)
+                .then((data) => setData(data.tops))
+                .catch(console.error);
+        }, []);
+    
+        if (data) {
+            return (
+                <React.Fragment>
+                    {data.map((top) => (
+                        <Clothing
+                            heading = {top.heading}
+                            alt = {top.alt}
+                            src = "https://picsum.photos/220/220"
+                        />
+                    ))}
+                </React.Fragment>
+            );
+        }
+        return null;
+    }
+
+    // display Bottoms
+    function Bottoms() {
+        const [data, setData] = React.useState([]);
+        React.useEffect(() => {
+            fetch("/my-closet")
+                .then((res) => res.json())
+                // .then(setData)
+                .then((data) => setData(data.bottoms))
+                .catch(console.error);
+        }, []);
+    
+        if (data) {
+            return (
+                <React.Fragment>
+                    {data.map((bottom) => (
+                        <Clothing
+                            heading = {bottom.heading}
+                            alt = {bottom.alt}
+                            src = "https://picsum.photos/220/220"
+                        />
+                    ))}
+                </React.Fragment>
+            );
+        }
+        return null;
+    }
+
+    // display Accessories
+    function Accessories() {
+        const [data, setData] = React.useState([]);
+        React.useEffect(() => {
+            fetch("/my-closet")
+                .then((res) => res.json())
+                // .then(setData)
+                .then((data) => setData(data.accessories))
+                .catch(console.error);
+        }, []);
+    
+        if (data) {
+            return (
+                <React.Fragment>
+                    {data.map((accessory) => (
+                        <Clothing
+                            heading = {accessory.heading}
+                            alt = {accessory.alt}
+                            src = "https://picsum.photos/220/220"
+                        />
+                    ))}
+                </React.Fragment>
+            );
+        }
+        return null;
+    }
+
+    // display Footwear
+    function Footwear() {
+        const [data, setData] = React.useState([]);
+        React.useEffect(() => {
+            fetch("/my-closet")
+                .then((res) => res.json())
+                // .then(setData)
+                .then((data) => setData(data.footwear))
+                .catch(console.error);
+        }, []);
+    
+        if (data) {
+            return (
+                <React.Fragment>
+                    {data.map((fw) => (
+                        <Clothing
+                            heading = {fw.heading}
+                            alt = {fw.alt}
+                            src = "https://picsum.photos/220/220"
+                        />
+                    ))}
+                </React.Fragment>
+            );
+        }
+        return null;
+    }
+    
+    
+
 
     function addOutfit(){
         console.log("Congrats! This Outfit has been added to My Outfits.")
@@ -43,10 +155,12 @@ const MyCloset = () => {
 
 	return(
 		<div className="myCloset">
-			<div className="heading">My Closet</div>
+			<div className="heading">
+                My Closet
+            </div>
 
             {/* TODO mannequin*/}
-            <img id="mannequin" src="https://picsum.photos/220/220" alt="Mannequin"></img>
+            <img id="mannequin" src={mannequin} alt="Mannequin"></img>
 
             {/* TODO Add to Outfits button */}
             <button id="outfitButton" type="button">Add to Outfits</button>
@@ -81,43 +195,28 @@ const MyCloset = () => {
                 </form>
             </div>
 
-            {/* TODO in the future, we will have to extract these Clothing 
-            objects from an API */}
-
             {/* tops section */}
             <section className="tops">
                 {/* hideable content */}
-				<Clothing heading="Top One Name" alt="Clothing One" src="https://picsum.photos/220/220" />
-				<Clothing heading="Top Two Name" alt="Clothing Two" src="https://picsum.photos/220/220" />
-				<Clothing heading="Top Three Name" alt="Clothing Three" src="https://picsum.photos/220/220" />
-				<Clothing heading="Top Four Name" alt="Clothing Four" src="https://picsum.photos/220/220" />
+                {Tops()}
 			</section>
 
             {/* bottoms section */}
             <section className="bottoms">
                 {/* hideable content */}
-				<Clothing heading="Bottom One Name" alt="Clothing One" src="https://picsum.photos/220/220" />
-				<Clothing heading="Bottom Two Name" alt="Clothing Two" src="https://picsum.photos/220/220" />
-				<Clothing heading="Bottom Three Name" alt="Clothing Three" src="https://picsum.photos/220/220" />
-				<Clothing heading="Bottom Four Name" alt="Clothing Four" src="https://picsum.photos/220/220" />
+                {Bottoms()}
             </section>
 
             {/* accessories section */}
             <section className="accessories">
                 {/* hideable content */}
-				<Clothing heading="Accessories One Name" alt="Clothing One" src="https://picsum.photos/220/220" />
-				<Clothing heading="Accessories Two Name" alt="Clothing Two" src="https://picsum.photos/220/220" />
-				<Clothing heading="Accessories Three Name" alt="Clothing Three" src="https://picsum.photos/220/220" />
-				<Clothing heading="Accessories Four Name" alt="Clothing Four" src="https://picsum.photos/220/220" />
-			</section>
+				{Accessories()}
+            </section>
 
             {/* footwear section */}
             <section className="footwear">
                 {/* hideable content */}
-				<Clothing heading="Footwear One Name" alt="Clothing One" src="https://picsum.photos/220/220" />
-				<Clothing heading="Footwear Two Name" alt="Clothing Two" src="https://picsum.photos/220/220" />
-				<Clothing heading="Footwear Three Name" alt="Clothing Three" src="https://picsum.photos/220/220" />
-				<Clothing heading="Footwear Four Name" alt="Clothing Four" src="https://picsum.photos/220/220" />
+				{Footwear()}
 			</section>
 
 

@@ -8,26 +8,44 @@
     /* background-color: red; */
 }
 
+button {
+    background-color: white;
+    /* border-radius: 50px; */
+    width: 100px;
+    border: 1px solid #8ac4ff;
+}
+
+
 h1 {
     width: 240px;
     height: 200px;
     text-align: center;
+
+    position: relative;
+	display: block;
+	margin-top: 50px;
 }
 /* should move "Username" and "Password" left but isn't working */
-label.id{
-    position:absolute;
-    text-align: left;
-    align-items: left;
+label{
+    color: black;
     font-size: small;
-    
+    position:relative;
+    text-align: left;
+    display: flex;
+    justify-content: start;
+    padding-left: 10px;
 }
+
 input{
     width: 200px;
     padding-block: 8px;
+    border: 1px solid #8ac4ff;
+    text-align: left;
 }
 
 /*hover functionality for button*/
 input.main{
+    text-align: center;
     background-color: white;
     border-radius: 50px;
     border: 1px solid #8ac4ff;
@@ -43,4 +61,8 @@ input.main:hover{
     width: 200px;
     padding-block: 8px;
     color: white;
+}
+
+p#debugging{
+    padding-top: 100px;
 }
